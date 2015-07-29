@@ -11,7 +11,7 @@
 |
 */
 
-Route::group( ['domain' => '{subdomain}.localhost'], function () {
+Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
     Route::get('/', function($subdomain) {
         return $subdomain;
     });
