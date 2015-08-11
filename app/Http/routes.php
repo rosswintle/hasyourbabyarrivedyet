@@ -12,9 +12,8 @@
 */
 
 Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
-    Route::get('/', function($subdomain) {
-        return $subdomain;
-    });
+    Route::get('/', 'User@profile');
+    Route::get('profile', 'User@profile');
 } );
 
 
