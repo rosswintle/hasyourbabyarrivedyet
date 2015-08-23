@@ -17,8 +17,13 @@ Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
     Route::get('profile', 'User@profile');
 } );
 
+// Use this later
+Route::group( ['middleware' => 'permissions'], function () {
+    Route::resource('user', 'UserController' );
+});
+
 // Profile route with no subdomain
-Route::get('profile', 'User@profile');
+//Route::get('profile', 'UserController@edit');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
