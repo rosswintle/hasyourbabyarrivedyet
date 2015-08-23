@@ -19,8 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return "There are " . count($users) . " users";
+        return view('user/index', ['users' => User::all()]);
     }
 
     /**
@@ -52,7 +51,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('user/show', [ 'user' => User::find($id)] );
     }
 
     /**
@@ -63,7 +62,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user/edit', ['user' => User::find($id)]);
     }
 
     /**
