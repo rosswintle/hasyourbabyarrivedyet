@@ -5,6 +5,6 @@
     <title></title>
 </head>
 <body>
-{{ $profile->display_name }} (not yours)
+{{ $profile->display_name }} (yours)
 </body>
 </html>
