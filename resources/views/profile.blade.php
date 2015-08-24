@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('display_name', $profile->display_name);
+@section('display_name', $profile->display_name)
 
 @section('content')
     <h1 class="display-name">{{ $profile->display_name }}</h1>
