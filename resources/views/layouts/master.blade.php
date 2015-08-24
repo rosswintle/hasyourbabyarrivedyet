@@ -46,7 +46,15 @@
             }(document, 'script', 'facebook-jssdk'));</script>
         <header>
 
-            <a class="brand-link" href="http://hasyourbabyarrivedyet.com">hasyourbabyarrivedyet.com</a>
+            <p>
+                @if (Auth::user())
+                    <a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
+                @else
+                    <a href="{{ action('Auth\AuthController@getLogin') }}">Login</a>
+                @endif
+            </p>
+
+            <p><a class="brand-link" href="http://hasyourbabyarrivedyet.com">hasyourbabyarrivedyet.com</a></p>
 
         </header>
 
