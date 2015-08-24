@@ -41,4 +41,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function isAdmin()  {
         return $this->role == 'admin';
     }
+
+    public function statusAsString() {
+        return $this->status ? "Yes" : "No";
+    }
 }

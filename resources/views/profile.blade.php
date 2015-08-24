@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-{{ $profile->display_name }} (not yours)
-</body>
-</html>
+@extends('layouts.master')
+
+@section('display_name', $profile->display_name);
+
+@section('content')
+    <h1 class="display-name">{{ $profile->display_name }}</h1>
+    <h2>Has your baby arrived yet?</h2>
+    <div class="answer">{{ $profile->statusAsString() }}</div>
+    <p>It's here!</p>
+@endsection
