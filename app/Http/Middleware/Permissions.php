@@ -17,7 +17,7 @@ class Permissions
     public function handle($request, Closure $next)
     {
         if (Auth::guest() || ! Auth::user()->isAdmin()) {
-            App:abort(403);
+            return redirect(url('/auth/login'));
         }
 
         return $next($request);
