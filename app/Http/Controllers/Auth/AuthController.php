@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -63,5 +64,13 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function redirectPath() {
+        $url = config('app.url');
+        $subDomain = Auth::user()->domain;
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        $host = parse_url($url, PHP_URL_HOST);
+        return $scheme.'://'.$subDomain.'.'.$host;
     }
 }
