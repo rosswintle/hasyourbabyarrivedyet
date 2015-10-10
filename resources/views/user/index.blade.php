@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content');
+@section('content')
 <table class="table table-bordered">
     <thead>
         <tr>

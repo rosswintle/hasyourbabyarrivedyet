@@ -1,0 +1,142 @@
+a.brand-link {
+	display: block;
+	font-family: 'Ranchers', cursive;
+	color: #FF4A93;
+	font-size: 20px;
+	margin: 20px 0;
+	text-decoration: none;
+}
+a.brand-link:hover,
+a.brand-link:active {
+	color: #FF9CC3;
+	text-decoration: none;
+}
+.display-name {
+	margin-top: 0;
+}
+.answer {
+	font-family: $block-font;
+	color: #000000;
+	font-size: 250px;
+	margin: 0 0 40px 0;
+}
+.small-answer {
+	font-family: $block-font;
+	color: #000000;
+	font-size: 80px;
+	margin: 0 0 40px 0;
+}
+
+.cookie-note-handle {
+	display: block;
+	position: absolute;
+	top: -1px;
+	right: 20px;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: none;
+	color: #000;
+	padding: 5px 10px;
+	border: 1px solid #000;
+}
+.cookie-note {
+	display: none;
+	width: 200px;
+	position: absolute;
+	top: -1px;
+	right: 50px;
+	font-size: 14px;
+	color: #000;
+	padding: 10px;
+	border: 1px solid #000;
+	background-color: #FFF;
+	z-index: 50000;
+}   
+
+.twitter-share-button {
+	display: inline-block !important;
+	vertical-align: bottom;
+//	top: 21px;
+//	right: 130px;
+}
+.fb_iframe_widget {
+	/* The !important declarations are needed here because, on mobile, Facebook injects inline
+	   styles to make buttons 100% wide blocks. Grrr Facebook. */
+	display: inline-block !important;
+	width: auto !important;
+	vertical-align: bottom;
+//	top: 14px;
+//	right: 260px;
+}	
+@media only screen and (min-width: 768px) {
+	.twitter-share-button {
+	}
+	.fb_iframe_widget {		
+	}	
+}
+
+// Fix the long, single-line title on home page
+body.home {
+	#content {
+		h1.page-title {
+			font-size: 1.2em;
+		}
+	}
+} 
+// And undo the above for larger screens
+@media only screen and (min-width: 768px) {
+	body.home {
+		#content {
+			h1.page-title {
+				font-size: 1.5em;
+			}
+		}
+	}
+}
+
+.big-red-button {
+	background-color: $hybay-pink;
+	border: none;
+	color: #FFFFFF;
+	border-radius: 100%;
+	padding: 1.5em 1em;
+	font-size: 2em;
+	font-weight: bold;
+	box-shadow: 3px 3px 2px 3px $hybay-dark-pink;
+}
+.big-red-button:hover {
+	position: relative;
+	left: 2px;
+	top: 2px;
+	box-shadow: 1px 1px 1px 1px $hybay-dark-pink;
+}
+.hybay-text-input {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFFF !important;
+	border: 2px solid $hybay-light-pink !important;
+}
+.gform_wrapper input {
+	font-size: 1em !important;
+}
+@each $color in hybay-blue, hybay-purple, hybay-violet, hybay-red, hybay-deep-orange, hybay-dark-green, hybay-mint-green {
+	body.hybay-color-scheme-#{$color} {
+		a, a:visited {
+			color: map-get($hybay-colors, #{$color});
+		}
+		h1, h2 {
+			color: map-get($hybay-colors, #{$color});	
+		}
+		.big-red-button {
+			background-color: map-get($hybay-colors, #{$color});
+			box-shadow: 3px 3px 2px 2px map-get($hybay-dark-colors, #{$color});
+		}
+		.big-red-button:hover {
+			box-shadow: 1px 1px 1px 1px map-get($hybay-dark-colors, #{$color});	
+		}
+		.hybay-input-text {
+			border: 2px solid map-get($hybay-light-colors, #{$color});
+		}
+
+	}
+}

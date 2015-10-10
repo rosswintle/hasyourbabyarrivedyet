@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content');
+@section('content')
 
 {!! Form::open(['method' => 'PUT', 'action' => ['UserController@update', $user->id]]) !!}
 

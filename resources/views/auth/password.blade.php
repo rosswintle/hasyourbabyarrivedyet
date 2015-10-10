@@ -1,7 +1,7 @@
 <!-- resources/views/auth/password.blade.php -->
-@extends('layouts.master');
+@extends('layouts.master')
 
-@section('content');
+@section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

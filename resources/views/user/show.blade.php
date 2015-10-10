@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content');
+@section('content')
 
     @if (isset($user))
 

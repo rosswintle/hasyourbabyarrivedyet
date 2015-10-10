@@ -8,6 +8,10 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+<!--        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+-->
         <link rel="apple-touch-icon" sizes="57x57" href="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicons/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="114x114" href="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicons/apple-touch-icon-114x114.png">
         <link rel="apple-touch-icon" sizes="72x72" href="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicons/apple-touch-icon-72x72.png">
@@ -24,18 +28,14 @@
         <link rel="icon" type="image/png" href="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicons/favicon-32x32.png" sizes="32x32">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-TileImage" content="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicons/mstile-144x144.png">
-        <!--[if IE]>
-        <link rel="shortcut icon" href="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicon.ico">
-        <![endif]-->
-        <meta name="msapplication-TileColor" content="#f01d4f">
-        <meta name="msapplication-TileImage" content="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/library/images/win8-tile-icon.png">
 
-        <link rel='stylesheet' id='googleFonts-css'  href='http://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CLife+Savers%7CRanchers' type='text/css' media='all' />
-        <link rel='stylesheet' id='bones-stylesheet-css'  href='http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/library/css/style.css' type='text/css' media='all' />
+<!--        <link rel='stylesheet' id='googleFonts-css'  href='http://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CLife+Savers%7CRanchers' type='text/css' media='all' /> -->
+        <script src="{{ elixir('js/all.js') }}" type="text/javascript"></script>
+        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     </head>
 
     <body>
-
+<?php /*
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -44,29 +44,70 @@
                 js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
+ */ ?>
         <header>
 
-            <p>
-                @if (Auth::user())
-                    <a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
-                @else
-                    <a href="{{ action('Auth\AuthController@getLogin') }}">Login</a>
-                @endif
-            </p>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Brand</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">Link</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                            </li>
+                            <li>
+                                <fb:like send="true" layout="button_count" width="150" show_faces="false"></fb:like>
+                            </li>
+                            <li>
+                                @if (Auth::user())
+                                    <a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
+                                @else
+                                    <a href="{{ action('Auth\AuthController@getLogin') }}">Login</a>
+                                @endif
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </nav>
 
-            <p><a class="brand-link" href="http://hasyourbabyarrivedyet.com">hasyourbabyarrivedyet.com</a></p>
+            <div class="container text-center">
+                <p><a class="brand-link" href="http://hasyourbabyarrivedyet.com">hasyourbabyarrivedyet.com</a></p>
+            </div>
 
         </header>
 
-        <div id="header-sharing" class="">
-            <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-            <fb:like send="true" layout="button_count" width="150" show_faces="false"></fb:like>
+        <div class="container">
+            @yield('content')
         </div>
 
-    @yield('content')
-
         <!-- Twitter API -->
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <?php /*
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        */ ?>
 
     </body>
 </html>
