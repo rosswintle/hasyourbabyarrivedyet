@@ -1,5 +1,5 @@
 <!-- resources/views/auth/register.blade.php -->
-@extends('layouts.master');
+@extends('layouts.master')
 
 @section('content')
     <div class="container-fluid">
