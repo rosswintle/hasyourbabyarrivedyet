@@ -1,6 +1,8 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "fonts.scss";
-@import "bootstrap.min.scss";
-@import "from-bones/style";
+@import "_fonts";
+@import "_variables";
+@import "../../../vendor/twbs/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "_typography";
+//@import "from-bones/style";
 

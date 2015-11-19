@@ -94,3 +94,11 @@
   src: local('Ranchers'), local('Ranchers-Regular'), url(http://fonts.gstatic.com/s/ranchers/v4/r4gr7yVW_WKq2Iup9aEixnYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+
+// font stacks
+$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+$lato:              'Lato', $sans-serif;
+$cursive-font: 'Life Savers', $sans-serif;
+$block-font: 'Ranchers', $sans-serif;
