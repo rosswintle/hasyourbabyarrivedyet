@@ -6,6 +6,7 @@
         <tr>
             <td>Name</td>
             <td>Email</td>
+            <td>Domain</td>
             <td>Display name</td>
             <td>Status</td>
         </tr>
@@ -19,6 +20,7 @@
                 </a>
             </td>
             <td>{{ $user->email }}</td>
+            <td>{{ $user->domain }}</td>
             <td>{{ $user->display_name }}</td>
             <td>{{ $user->statusAsString() }}</td>
         </tr>
