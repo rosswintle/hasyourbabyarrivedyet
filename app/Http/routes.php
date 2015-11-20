@@ -13,7 +13,10 @@
 
 // Routes with subdomains
 Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
-    Route::get('/', 'UserController@profile');
+    Route::get('/', [
+        'as' => 'user.profile.index',
+        'uses' => 'UserController@profile']
+    );
 } );
 
 // Use this later
