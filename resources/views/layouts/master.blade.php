@@ -29,7 +29,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-TileImage" content="http://hasyourbabyarrivedyet.com/wp-content/themes/hasyourbabyarrivedyet/favicons/mstile-144x144.png">
 
-<!--        <link rel='stylesheet' id='googleFonts-css'  href='http://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CLife+Savers%7CRanchers' type='text/css' media='all' /> -->
+        <link rel='stylesheet' id='googleFonts-css'  href='http://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CLife+Savers%7CRanchers' type='text/css' media='all' />
         <script src="{{ elixir('js/all.js') }}" type="text/javascript"></script>
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     </head>
