@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     </head>
 
-    <body>
+    <body class="hybay-color-scheme-hybay-pink">
 <?php /*
         <div id="fb-root"></div>
         <script>(function(d, s, id) {

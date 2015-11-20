@@ -1,0 +1,50 @@
+.answer {
+  font-family: $block-font;
+  color: #000000;
+  font-size: 250px;
+  margin: 0 0 40px 0;
+}
+.small-answer {
+  font-family: $block-font;
+  color: #000000;
+  font-size: 80px;
+  margin: 0 0 40px 0;
+}
+.big-red-button {
+  background-color: $hybay-pink;
+  border: none;
+  color: #FFFFFF;
+  border-radius: 100%;
+  padding: 1.5em 1em;
+  font-size: 2em;
+  font-weight: bold;
+  box-shadow: 3px 3px 2px 3px $hybay-dark-pink;
+}
+.big-red-button:hover {
+  position: relative;
+  left: 2px;
+  top: 2px;
+  box-shadow: 1px 1px 1px 1px $hybay-dark-pink;
+}
+@each $color in hybay-pink, hybay-blue, hybay-purple, hybay-violet, hybay-red, hybay-deep-orange, hybay-dark-green, hybay-mint-green {
+  body.hybay-color-scheme-#{$color} {
+    a, a:visited {
+      color: map-get($hybay-colors, #{$color});
+    }
+    h1, h2 {
+      color: map-get($hybay-colors, #{$color});
+    }
+    .big-red-button {
+      background-color: map-get($hybay-colors, #{$color});
+      box-shadow: 3px 3px 2px 2px map-get($hybay-dark-colors, #{$color});
+    }
+    .big-red-button:hover {
+      box-shadow: 1px 1px 1px 1px map-get($hybay-dark-colors, #{$color});
+    }
+    .hybay-input-text {
+      border: 2px solid map-get($hybay-light-colors, #{$color});
+    }
+
+  }
+}
+
