@@ -85,11 +85,7 @@
                     </div><!-- /.navbar-collapse -->
                 </div>
             </nav>
-
-            <div class="container text-center">
-                <p><a class="brand-link" href="http://hasyourbabyarrivedyet.com">hasyourbabyarrivedyet.com</a></p>
-            </div>
-
+            
         </header>
 
         <div class="container">
