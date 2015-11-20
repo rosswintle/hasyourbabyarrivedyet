@@ -88,6 +88,11 @@ $link-hover:        $hybay-light-pink;
 
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;
+
+// Now override Bootstrap colours
+$brand-primary: $hybay-pink;
+$navbar-default-brand-color: $hybay-pink;
+
 $font-family-base: $cursive-font;
 $headings-font-family: $block-font;
 $font-size-base: 16px;
