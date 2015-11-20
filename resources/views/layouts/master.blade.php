@@ -62,6 +62,11 @@
                         <ul class="nav navbar-nav">
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            @if (Auth::user() && Auth::user()->isAdmin())
+                                <li>
+                                    <a href="{{ action('UserController@index') }}">User Management</a>
+                                </li>
+                            @endif
                             <li>
                                 @if (Auth::user())
                                     <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
