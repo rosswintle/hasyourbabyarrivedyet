@@ -37,6 +37,20 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="col-md-4 control-label">Display name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="display_name" value="{{ old('display_name') }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Domain</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="domain" value="{{ old('domain') }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="col-md-4 control-label">Password</label>
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name="password">
