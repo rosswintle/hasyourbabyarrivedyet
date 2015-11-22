@@ -111,6 +111,6 @@ class UserController extends Controller
         $current_status = $user->status;
         $new_status = ! $current_status;
         $user->update(array('status' => $new_status));
-        return view('your-profile', array('profile' => $user));
+        return redirect()->action('UserController@profile', Auth::user()->domain);
     }
 }
