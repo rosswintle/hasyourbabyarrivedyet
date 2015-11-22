@@ -67,6 +67,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
             'display_name' => $data['display_name'],
             'domain' => $data['domain'],
+            'color_scheme' => $data['color_scheme'],
         ]);
     }
 
