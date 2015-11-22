@@ -34,6 +34,19 @@
             <td>{!! Form::select('status', [0 => 'No', 1 => 'Yes'], $user->status) !!}</td>
         </tr>
         <tr>
+            <td>{!! Form::label('color_scheme', "Colour Scheme: ") !!}</td>
+            <td>{!! Form::select('color_scheme',
+                    ['pink' => 'Pink',
+                    'blue' => 'Blue',
+                    'purple' => 'Purple',
+                    'violet' => 'Violet',
+                    'red' => 'Red',
+                    'deep-orange' => 'Deep Orange',
+                    'dark-green' => 'Dark Green',
+                    'mint-green' => 'Mint Green'],
+                    $user->color_scheme) !!}</td>
+        </tr>
+        <tr>
             <td colspan="2">
                 {!! Form::submit('Done') !!}
             </td>

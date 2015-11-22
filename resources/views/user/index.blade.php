@@ -9,6 +9,7 @@
             <td>Domain</td>
             <td>Display name</td>
             <td>Status</td>
+            <td>Colour scheme</td>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
             <td>{{ $user->domain }}</td>
             <td>{{ $user->display_name }}</td>
             <td>{{ $user->statusAsString() }}</td>
+            <td>{{ $user->color_scheme }}</td>
         </tr>
     @endforeach
     </tbody>

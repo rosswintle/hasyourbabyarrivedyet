@@ -65,6 +65,22 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="col-md-4 control-label">Colour scheme</label>
+                                <div class="col-md-6">
+                                    <select type="password" class="form-control" name="color_scheme">
+                                        <option value="pink">Pink</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="violet">Violet</option>
+                                        <option value="red">Red</option>
+                                        <option value="deep-orange">Deep Orange</option>
+                                        <option value="dark-green">Dark Green</option>
+                                        <option value="mint-green">Mint Green</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Register
