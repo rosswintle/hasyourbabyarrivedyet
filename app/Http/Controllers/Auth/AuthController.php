@@ -50,6 +50,7 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
             'domain' => 'required|unique:users|alpha_num',
             'display_name' => 'required|max:255',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
     }
 

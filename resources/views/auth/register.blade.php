@@ -81,6 +81,13 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-6">
+                                    {!! Recaptcha::render() !!}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Register
@@ -93,4 +100,5 @@
             </div>
         </div>
     </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection
