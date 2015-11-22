@@ -25,9 +25,19 @@
 
                 <p>It is live and open to sign-ups, but it’s currently under development so consider it a work in progress.</p>
 
-                <p>Here’s an example: <a href="http://kateandwilliam.hasyourbabyarrivedyet.com">http://kateandwilliam.hasyourbabyarrivedyet.com</a></p>
+                <p>Here’s an example: </p>
+
+                <a class="btn btn-default" href="http://kateandwilliam.hasyourbabyarrivedyet.com">Kate and William's Page</a></p>
 
                 <p>You can find out <a href="">how it works</a>, or go ahead and <a href="{{ action('Auth\AuthController@getRegister') }}">sign up</a>.</p>
+            </div>
+        </div>
+        <div class="hero-row">
+            <div class="col-sm-5">
+
+            </div>
+            <div class="col-sm-5">
+
             </div>
         </div>
     </div>

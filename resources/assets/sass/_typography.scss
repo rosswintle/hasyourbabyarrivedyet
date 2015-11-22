@@ -18,8 +18,11 @@ h1.small-on-mobile {
 .answer {
   font-family: $block-font;
   color: #000000;
-  font-size: 250px;
+  font-size: 170px;
   margin: 0 0 40px 0;
+  @include respond-to(small) {
+    font-size: 250px;
+  }
 }
 .small-answer {
   font-family: $block-font;
