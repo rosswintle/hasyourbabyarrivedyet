@@ -95,15 +95,19 @@ class UserController extends Controller
      */
     public function profile($subdomain) {
         $profile = User::where('domain', $subdomain)->first();
-        $domain = $profile->domain;
+        if($profile) {
+            $domain = $profile->domain;
 
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->id == $profile->id) {
-                return view('your-profile', compact('profile', 'domain'));
+            if (Auth::check()) {
+                $user = Auth::user();
+                if ($user->id == $profile->id) {
+                    return view('your-profile', compact('profile', 'domain'));
+                }
             }
+            return view('profile', compact('profile', 'domain'));
+        } else {
+            return response('Profile not found', 404);
         }
-        return view('profile', compact('profile', 'domain'));
     }
 
     public function toggleState() {
