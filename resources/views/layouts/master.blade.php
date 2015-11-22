@@ -67,14 +67,14 @@
                                 @if (Auth::user())
                                     <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
                                 @else
-                                    <a href="{{ action('Auth\AuthController@getRegister') }}">Register</a>
+                                    <a href="{{ action('Auth\AuthController@getRegister') }}">Sign Up</a>
                                 @endif
                             </li>
                             <li>
                                 @if (Auth::user())
                                     <a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
                                 @else
-                                    <a href="{{ action('Auth\AuthController@getLogin') }}">Login</a>
+                                    <a href="{{ action('Auth\AuthController@getLogin') }}">Log in</a>
                                 @endif
                             </li>
                         </ul>
