@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'lifetime' => 120,
+    'lifetime' => 60 * 24 * 90, // 90 days!!
 
     'expire_on_close' => false,
 
@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'domain' => null,
+    'domain' => '.' . env('DOMAIN'),
 
     /*
     |--------------------------------------------------------------------------
