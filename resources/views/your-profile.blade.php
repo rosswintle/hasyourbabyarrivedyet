@@ -9,7 +9,9 @@
             <h2>Current status:</h2>
             <div class="small-answer">{{ $profile->statusAsString() }}</div>
             <h2>Change status:</h2>
-            <button class="big-red-button">Change<br>Status</button>
+            {!! Form::open(['method' => 'POST', 'action' => ['UserController@toggleState']]) !!}
+                <button class="big-red-button">Change<br>Status</button>
+            {!! Form::close() !!}
 
         </div>
     </div>

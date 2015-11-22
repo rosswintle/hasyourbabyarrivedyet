@@ -24,6 +24,8 @@ Route::group( ['middleware' => 'permissions'], function () {
     Route::resource('user', 'UserController' );
 });
 
+Route::post('user/toggle-state', 'UserController@toggleState');
+
 // Profile route with no subdomain
 //Route::get('profile', 'UserController@edit');
 
