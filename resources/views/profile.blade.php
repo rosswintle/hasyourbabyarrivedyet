@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title', $profile->display_name . ' - has your baby arrived yet? - hasyourbabyarrivedyet.com')
+
+@section('description', $profile->display_name . ' - has your baby arrived yet? Find out on their simple birth announcement page at hasyourbabyarrivedyet.com')
+
 @section('display_name', $profile->display_name)
 
 @section('content')

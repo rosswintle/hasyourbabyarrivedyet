@@ -1,8 +1,15 @@
 <html>
     <head>
         <title>
-            hasyourbabyarrivedyet.com - Simple sites for sharing baby news
+            @yield('title')
         </title>
+        <meta name="description" content="@yield('description')">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:title" content="@yield('title')">
+        <meta property="og:description" content="@yield('description')">
+        <meta property="og:site_name" content="hasyourbabyarrivedyet.com">
+        <meta property="og:image" content="http://{{ env('DOMAIN') }}/images/favicons/apple-touch-icon-180x180.png">
+
 
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">

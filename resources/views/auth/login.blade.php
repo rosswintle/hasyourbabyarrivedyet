@@ -1,6 +1,10 @@
 <!-- resources/views/auth/login.blade.php -->
 @extends('layouts.master')
 
+@section('title', 'Log in - hasyourbabyarrivedyet.com - Simple sites for sharing baby news')
+
+@section('description', 'Simple baby arrival announcement sites for sharing baby news and answering the question: Has your baby arrived yet?')
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
