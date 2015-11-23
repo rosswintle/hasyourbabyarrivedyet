@@ -10,6 +10,7 @@
             <td>Display name</td>
             <td>Status</td>
             <td>Colour scheme</td>
+            <td>Actions</td>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,12 @@
             <td>{{ $user->display_name }}</td>
             <td>{{ $user->statusAsString() }}</td>
             <td>{{ $user->color_scheme }}</td>
+            <td>
+                <form action="{{ action('UserController@destroy', ['id' => $user->id]) }}" method="POST">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                    <input type="submit" value="DELETE">
+                </form>
         </tr>
     @endforeach
     </tbody>

@@ -86,7 +86,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return view('user/index', ['users' => User::all()]);
     }
 
     /**
