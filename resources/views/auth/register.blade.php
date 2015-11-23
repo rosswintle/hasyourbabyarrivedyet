@@ -112,6 +112,9 @@
                                     <button type="submit" class="btn btn-primary">
                                         Register
                                     </button>
+                                    <p class="field-description">Please note that there are some simple
+                                        <a href="{{ url('terms') }}">terms and conditions</a> that apply to all
+                                    users of this website.</p>
                                 </div>
                             </div>
                         </form>
@@ -120,5 +123,4 @@
             </div>
         </div>
     </div>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

@@ -108,7 +108,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-
+                        <a href="{{ url('terms') }}">Terms, Conditions and Privacy</a>
                     </div>
                     <div class="col-sm-6 text-right">
                         An <a href="http://oikos.org.uk">Oikos</a> project

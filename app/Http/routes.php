@@ -56,3 +56,6 @@ Route::get('how-it-works', function () {
 Route::get('help-others', function () {
     return view('help-others');
 });
+Route::get('terms', function () {
+    return view('terms');
+});
