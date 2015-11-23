@@ -93,8 +93,9 @@ class UserController extends Controller
      * @param null $subdomain
      * @return \Illuminate\View\View
      */
-    public function profile($subdomain) {
+    public function profile(Request $request, $subdomain) {
         $profile = User::where('domain', $subdomain)->first();
+        $notice = null;
         if($profile) {
             $domain = $profile->domain;
             $color_scheme_class = 'hybay-color-scheme-hybay-' . $profile->color_scheme;
@@ -102,10 +103,13 @@ class UserController extends Controller
             if (Auth::check()) {
                 $user = Auth::user();
                 if ($user->id == $profile->id) {
-                    return view('your-profile', compact('profile', 'domain', 'color_scheme_class'));
+                    if ($request->input('registered') == 1) {
+                        $notice = "Thank you for signing up - here is your profile page.";
+                    }
+                    return view('your-profile', compact('profile', 'domain', 'color_scheme_class', 'notice'));
                 }
             }
-            return view('profile', compact('profile', 'domain', 'color_scheme_class'));
+            return view('profile', compact('profile', 'domain', 'color_scheme_class', 'notice'));
         } else {
             return response('Profile not found', 404);
         }
