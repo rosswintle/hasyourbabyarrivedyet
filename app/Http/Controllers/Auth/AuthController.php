@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Mail;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -63,6 +64,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        Mail::send('emails.signup-admin-notify', ['data' => $data], function ($m) use ($data) {
+            $m->from('admin@hasyourbabyarrivedyet.com', 'hasyourbabyarrivedyet.com');
+
+            $m->to('ross@oikos.org.uk', 'Ross Wintle')->subject('New signup on hasyourbabyarrivedyet.com!');
+        });
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
