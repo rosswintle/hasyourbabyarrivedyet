@@ -8,6 +8,7 @@ use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Flash;
 
 class UserController extends Controller
 {
@@ -95,6 +96,7 @@ class UserController extends Controller
      * @return \Illuminate\View\View
      */
     public function profile(Request $request, $subdomain) {
+
         $profile = User::where('domain', $subdomain)->first();
         $notice = null;
         if($profile) {
@@ -104,9 +106,6 @@ class UserController extends Controller
             if (Auth::check()) {
                 $user = Auth::user();
                 if ($user->id == $profile->id) {
-                    if ($request->input('registered') == 1) {
-                        $notice = "Thank you for signing up - here is your profile page.";
-                    }
                     return view('your-profile', compact('profile', 'domain', 'color_scheme_class', 'notice'));
                 }
             }

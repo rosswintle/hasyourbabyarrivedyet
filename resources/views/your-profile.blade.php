@@ -9,11 +9,7 @@
 @section('content')
     <div class="row">
         <div class="col-xs-12 text-center">
-            @if ($notice)
-                <div class="alert alert-success">
-                    {{ $notice }}
-                </div>
-            @endif
+            @include('flash::message')
             <h1 class="display-name">{{ $profile->display_name }}</h1>
             <h2>Current status:</h2>
             <div class="small-answer">{{ $profile->statusAsString() }}</div>

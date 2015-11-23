@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Flash;
 
 class AuthController extends Controller
 {
@@ -70,6 +71,8 @@ class AuthController extends Controller
             $m->to('ross@oikos.org.uk', 'Ross Wintle')->subject('New signup on hasyourbabyarrivedyet.com!');
         });
 
+        Flash::success('Thank you for signing up - here is your profile page.');
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -90,6 +93,6 @@ class AuthController extends Controller
         $subDomain = Auth::user()->domain;
         $scheme = parse_url($url, PHP_URL_SCHEME);
         $host = parse_url($url, PHP_URL_HOST);
-        return $scheme.'://'.$subDomain.'.'.$host.'?registered=1';
+        return $scheme.'://'.$subDomain.'.'.$host;
     }
 }
