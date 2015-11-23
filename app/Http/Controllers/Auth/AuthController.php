@@ -80,6 +80,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Set the redirect path after login based on the domain
+     *
+     * @return string
+     */
     public function redirectPath() {
         $url = config('app.url');
         $subDomain = Auth::user()->domain;
