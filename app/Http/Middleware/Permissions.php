@@ -17,7 +17,7 @@ class Permissions
     public function handle($request, Closure $next)
     {
         if (!Auth::user()) {
-            return redirect('auth/login');
+            return redirect('/login');
         } elseif ( ! Auth::user()->isAdmin()) {
             return response('Denied!', 403);
         }
