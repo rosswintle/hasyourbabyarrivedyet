@@ -11,7 +11,7 @@
                 <h1 class="welcome-title small-on-mobile">hasyourbabyarrivedyet.com</h1>
                 <p><strong>A free and simple service for sharing news of your new arrival and stopping people asking you the obvious question: Has your baby arrived yet?!</strong></p>
                 <p>
-                    <a class="btn btn-default" role="button">Find out more</a>
+                    <a class="btn btn-default" href="{{ url('how-it-works') }}" role="button">Find out more</a>
                     <a class="btn btn-default" href="{{ action('Auth\AuthController@getRegister') }}" role="button">Sign Up</a>
                 </p>
             </div>
@@ -33,7 +33,7 @@
 
                 <a class="btn btn-default" href="http://kateandwilliam.hasyourbabyarrivedyet.com">Kate and William's Page</a></p>
 
-                <p>You can find out <a href="">how it works</a>, or go ahead and <a href="{{ action('Auth\AuthController@getRegister') }}">sign up</a>.</p>
+                <p>You can find out <a href="{{ url('how-it-works') }}">how it works</a>, or go ahead and <a href="{{ action('Auth\AuthController@getRegister') }}">sign up</a>.</p>
             </div>
         </div>
         <div class="hero-row">

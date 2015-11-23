@@ -46,7 +46,10 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
+// General page routes
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('how-it-works', function () {
+    return view('how-it-works');
+});
