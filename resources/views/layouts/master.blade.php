@@ -71,6 +71,9 @@
                                 </li>
                             @endif
                             <li>
+                                <a href="{{ url('how-it-works') }}">How it works</a>
+                            </li>
+                            <li>
                                 @if (Auth::user())
                                     <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
                                 @else
