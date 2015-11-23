@@ -98,8 +98,17 @@
             @yield('content')
         </div>
 
-        <footer>
+        <footer class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
 
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        An <a href="http://oikos.org.uk">Oikos</a> project
+                    </div>
+                </div>
+            </div>
         </footer>
 
         <!-- Google Analytics -->
