@@ -66,7 +66,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="{{ url('/') }}">Home</a>
+                                <a href="http://{{ env('DOMAIN') }}/">Home</a>
                             </li>
                             @if (Auth::user() && Auth::user()->isAdmin())
                                 <li>
