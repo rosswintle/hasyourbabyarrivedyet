@@ -22,7 +22,7 @@
                 </a>
             </td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->domain }}</td>
+            <td><a href="{{ action('UserController@profile', ['subdomain' => $user->domain]) }}">{{ $user->domain }}</a></td>
             <td>{{ $user->display_name }}</td>
             <td>{{ $user->statusAsString() }}</td>
             <td>{{ $user->color_scheme }}</td>
