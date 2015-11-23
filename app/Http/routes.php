@@ -53,3 +53,6 @@ Route::get('/', function () {
 Route::get('how-it-works', function () {
     return view('how-it-works');
 });
+Route::get('help-others', function () {
+    return view('help-others');
+});

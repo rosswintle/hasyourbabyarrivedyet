@@ -65,6 +65,9 @@
                         <ul class="nav navbar-nav">
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ url('/') }}">Home</a>
+                            </li>
                             @if (Auth::user() && Auth::user()->isAdmin())
                                 <li>
                                     <a href="{{ action('UserController@index') }}">User Management</a>
@@ -72,6 +75,9 @@
                             @endif
                             <li>
                                 <a href="{{ url('how-it-works') }}">How it works</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('help-others') }}">Help other children</a>
                             </li>
                             <li>
                                 @if (Auth::user())

@@ -63,6 +63,13 @@
                     I’ve created colour schemes for your page. From an equally-bright-and-fun shade of blue,
                     through to a selection of colours that could be considered gender-neutral.</p>
                 <p>The choice is yours!</p>
+
+                <h2>Who are you?</h2>
+
+                <p>I’m Ross, and I run a little web development and technology consultancy called
+                    <a href="http://oikos.org.uk">Oikos</a> that focusses on the charity sector.
+                    I tweet as <a href="https://twitter.com/magicroundabout">@magicroundabout</a>.
+                    If you like hasyourbabyarrivedyet, why not pop over and say “Hi”?</p>
             </div>
         </div>
     </div>
