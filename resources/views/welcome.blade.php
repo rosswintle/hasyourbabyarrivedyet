@@ -12,7 +12,11 @@
                 <p><strong>A free and simple service for sharing news of your new arrival and stopping people asking you the obvious question: Has your baby arrived yet?!</strong></p>
                 <p>
                     <a class="btn btn-default" href="{{ url('how-it-works') }}" role="button">Find out more</a>
-                    <a class="btn btn-default" href="{{ action('Auth\AuthController@getRegister') }}" role="button">Sign Up</a>
+                    @if (! Auth::user())
+                        <a class="btn btn-default" href="{{ action('Auth\AuthController@getRegister') }}" role="button">Sign Up</a>
+                    @else
+                        <a class="btn btn-default" href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}" role="button">Your Page</a>
+                    @endif
                 </p>
             </div>
         </div>
