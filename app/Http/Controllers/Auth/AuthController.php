@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Flash;
 
 class AuthController extends Controller
@@ -63,7 +64,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(Request $request, array $data)
     {
         Mail::send('emails.signup-admin-notify', ['data' => $data], function ($m) use ($data) {
             $m->from('admin@hasyourbabyarrivedyet.com', 'hasyourbabyarrivedyet.com');
@@ -72,6 +73,13 @@ class AuthController extends Controller
         });
 
         Flash::success('Thank you for signing up - here is your profile page.');
+
+        $request->session()->flash('send_ga_event', [
+            'category' => 'userEvents',
+            'action' => 'signUp',
+            'label' => '',
+            'value' => 1
+        ]);
 
         return User::create([
             'name' => $data['name'],

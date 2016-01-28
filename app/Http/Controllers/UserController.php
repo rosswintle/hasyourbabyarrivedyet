@@ -115,11 +115,19 @@ class UserController extends Controller
         }
     }
 
-    public function toggleState() {
+    public function toggleState(Request $request) {
         $user = Auth::user();
         $current_status = $user->status;
         $new_status = ! $current_status;
         $user->update(array('status' => $new_status));
+
+        $request->session()->flash('send_ga_event', [
+            'category' => 'userEvents',
+            'action' => 'stateToggled',
+            'label' => $user->domain,
+            'value' => 1
+        ]);
+
         return redirect()->action('UserController@profile', Auth::user()->domain);
     }
 }

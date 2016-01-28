@@ -127,6 +127,16 @@
             ga('create', 'UA-36775788-1', 'auto');
             ga('send', 'pageview');
 
+            @if (isset($send_ga_event))
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: '{{ $send_ga_event['category'] }}',
+                    eventAction: '{{ $send_ga_event['action'] }}',
+                    eventLabel: '{{ $send_ga_event['label'] }}',
+                    eventValue: '{{ $send_ga_event['value'] }}'
+                });
+            @endif
+
         </script>
         <!-- Twitter API -->
         <?php /*
