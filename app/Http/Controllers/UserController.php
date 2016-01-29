@@ -129,6 +129,11 @@ class UserController extends Controller
             'value' => 1
         ]);
 
+        if ($new_status) {
+            Flash::success('Status updated - congratulations! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">set a note</a>?');
+        } else {
+            Flash::success('Status updated - what happened?! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">change your note</a> too?');
+        }
         return redirect()->action('UserController@profile', Auth::user()->domain);
     }
 
