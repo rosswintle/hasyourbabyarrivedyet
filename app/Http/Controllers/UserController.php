@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\URL;
 use Illuminate\Support\Facades\Auth;
 use Flash;
 
@@ -130,4 +131,27 @@ class UserController extends Controller
 
         return redirect()->action('UserController@profile', Auth::user()->domain);
     }
+
+    public function editNote($subdomain)
+    {
+        $profile = User::where('domain', $subdomain)->first();
+        if($profile) {
+            if (Auth::check()) {
+                $user = Auth::user();
+                if ($user->id == $profile->id) {
+                    return view('edit-note', ['user' => $user]);
+                }
+            }
+        }
+        return response('You can\'t do that!', 501);
+    }
+
+    public function updateNote(Request $request)
+    {
+        $user = Auth::user();
+        $user->update(['note' => $request->input('note')]);
+        Flash::success('Note updated');
+        return redirect()->action('UserController@profile', Auth::user()->domain);
+    }
+
 }

@@ -17,6 +17,10 @@ Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
         'as' => 'user.profile.index',
         'uses' => 'UserController@profile']
     );
+    Route::get('/note', [
+        'as' => 'user.profile.note',
+        'uses' => 'UserController@editNote']
+    );
 } );
 
 // Use this later
@@ -25,6 +29,7 @@ Route::group( ['middleware' => 'permissions'], function () {
 });
 
 Route::post('user/toggle-state', 'UserController@toggleState');
+Route::post('/note', 'UserController@updateNote');
 
 // Profile route with no subdomain
 //Route::get('profile', 'UserController@edit');

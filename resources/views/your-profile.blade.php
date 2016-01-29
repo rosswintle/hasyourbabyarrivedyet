@@ -17,6 +17,11 @@
             {!! Form::open(['method' => 'POST', 'action' => ['UserController@toggleState']]) !!}
                 <button class="big-red-button">Change<br>Status</button>
             {!! Form::close() !!}
+            <h2>Current note:</h2>
+            <p>
+                {!! $profile->note !!}
+                <br><a href="{{ URL::route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</a>
+            </p>
 
         </div>
     </div>

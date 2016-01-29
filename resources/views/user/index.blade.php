@@ -9,6 +9,7 @@
             <td>Domain</td>
             <td>Display name</td>
             <td>Status</td>
+            <td>Note</td>
             <td>Colour scheme</td>
             <td>Actions</td>
         </tr>
@@ -25,6 +26,7 @@
             <td><a href="{{ action('UserController@profile', ['subdomain' => $user->domain]) }}">{{ $user->domain }}</a></td>
             <td>{{ $user->display_name }}</td>
             <td>{{ $user->statusAsString() }}</td>
+            <td>{{ $user->note }}</td>
             <td>{{ $user->color_scheme }}</td>
             <td>
                 <form action="{{ action('UserController@destroy', ['id' => $user->id]) }}" method="POST">
