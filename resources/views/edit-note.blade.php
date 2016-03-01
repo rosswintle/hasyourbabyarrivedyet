@@ -14,7 +14,6 @@
             <h2>Edit note:</h2>
             {!! Form::open(['method' => 'POST', 'action' => ['UserController@updateNote']]) !!}
                 <p>
-                    {!! Form::label('note', "Note") !!}
                     {!! Form::text('note', $user->note) !!}
                 </p>
                 <p>

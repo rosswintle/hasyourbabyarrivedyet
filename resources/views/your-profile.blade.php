@@ -20,7 +20,7 @@
             <h2>Current note:</h2>
             <p>
                 {!! $profile->note !!}
-                <br><a href="{{ URL::route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</a>
+                <br><a class="btn btn-default" href="{{ URL::route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</a>
             </p>
 
         </div>
