@@ -12,6 +12,27 @@
 */
 
 // Routes with subdomains
+Route::group( ['domain' => 'expecting.' .env('DOMAIN')], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+});
+Route::group( ['domain' => 'findoutmore.' .env('DOMAIN')], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+});
+Route::group( ['domain' => 'fedupofbeingasked.' .env('DOMAIN')], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+});
+Route::group( ['domain' => 'fedupwithbeingasked.' .env('DOMAIN')], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+});
+
 Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
     Route::get('/', [
         'as' => 'user.profile.index',
