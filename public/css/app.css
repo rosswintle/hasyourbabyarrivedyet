@@ -5920,4 +5920,7 @@ footer {
       color: #FFF;
       text-decoration: underline; }
 
+#main-container {
+  min-height: calc( 100vh - 77px - 146px); }
+
 /*# sourceMappingURL=app.css.map */

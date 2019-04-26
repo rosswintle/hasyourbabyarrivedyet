@@ -100,7 +100,7 @@
             
         </header>
 
-        <div class="container">
+        <div id="main-container" class="container">
             @yield('content')
         </div>
 

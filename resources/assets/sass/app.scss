@@ -9,3 +9,6 @@
 @import "_footer";
 //@import "from-bones/style";
 
+#main-container {
+	min-height: calc( 100vh - 77px - 146px );
+}
