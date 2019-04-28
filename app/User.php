@@ -2,47 +2,38 @@
 
 namespace App;
 
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class User extends Authenticatable
 {
-    use Authenticatable, CanResetPassword;
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password', 'domain', 'display_name', 'status', 'color_scheme', 'note'];
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
     /**
-     * Tell us if the user is an admin.
+     * The attributes that should be cast to native types.
      *
-     * @return bool
+     * @var array
      */
-    public function isAdmin()  {
-        return $this->role == 'admin';
-    }
-
-    public function statusAsString() {
-        return $this->status ? "Yes" : "No";
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }
