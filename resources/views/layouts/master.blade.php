@@ -33,11 +33,11 @@
         <meta name="msapplication-TileImage" content="https://{{ env('DOMAIN') }}/images/faviconsmstile-144x144.png">
 
         <link rel='stylesheet' id='googleFonts-css'  href='https://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CLife+Savers%7CRanchers%7CVarela+Round' type='text/css' media='all' />
-        <script src="{{ elixir('js/all.js') }}" type="text/javascript"></script>
-        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+        <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
 
-    <body class="{{ $color_scheme_class or 'hybay-color-scheme-hybay-pink' }}">
+    <body class="{{ $color_scheme_class ?? 'hybay-color-scheme-hybay-pink' }}">
 <?php /*
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -83,14 +83,14 @@
                                 @if (Auth::user())
                                     <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
                                 @else
-                                    <a href="{{ action('Auth\AuthController@getRegister') }}">Sign Up</a>
+                                    <a href="{{ route('register') }}">Sign Up</a>
                                 @endif
                             </li>
                             <li>
                                 @if (Auth::user())
-                                    <a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
+                                    <a href="{{ route('logout') }}">Logout</a>
                                 @else
-                                    <a href="{{ action('Auth\AuthController@getLogin') }}">Log in</a>
+                                    <a href="{{ route('login') }}">Log in</a>
                                 @endif
                             </li>
                         </ul>
