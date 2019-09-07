@@ -9,7 +9,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\URL;
 use Illuminate\Support\Facades\Auth;
-use Flash;
 
 class UserController extends Controller
 {
@@ -130,9 +129,9 @@ class UserController extends Controller
         ]);
 
         if ($new_status) {
-            Flash::success('Status updated - congratulations! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">set a note</a>?');
+            flash('Status updated - congratulations! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">set a note</a>?')->success();
         } else {
-            Flash::success('Status updated - what happened?! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">change your note</a> too?');
+            flash('Status updated - what happened?! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">change your note</a> too?')->success();
         }
         return redirect()->action('UserController@profile', Auth::user()->domain);
     }
@@ -155,7 +154,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $user->update(['note' => $request->input('note')]);
-        Flash::success('Note updated');
+        flash('Note updated')->success();
         return redirect()->action('UserController@profile', Auth::user()->domain);
     }
 

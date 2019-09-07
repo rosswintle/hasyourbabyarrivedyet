@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -62,8 +65,8 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\User
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     protected function create(array $data)
     {
@@ -73,9 +76,9 @@ class RegisterController extends Controller
             $m->to('ross@oikos.org.uk', 'Ross Wintle')->subject('New signup on hasyourbabyarrivedyet.com!');
         });
 
-        Flash::success('Thank you for signing up - here is your profile page.');
+        flash('Thank you for signing up - here is your profile page.')->success();
 
-        Request::session()->flash('send_ga_event', [
+        session()->flash('send_ga_event', [
             'category' => 'userEvents',
             'action' => 'signUp',
             'label' => '',
@@ -90,6 +93,7 @@ class RegisterController extends Controller
             'domain' => $data['domain'],
             'color_scheme' => $data['color_scheme'],
         ]);
+
     }
 
     /**

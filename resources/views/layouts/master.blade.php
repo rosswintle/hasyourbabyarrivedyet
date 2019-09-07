@@ -88,7 +88,7 @@
                             </li>
                             <li>
                                 @if (Auth::user())
-                                    <a href="{{ route('logout') }}">Logout</a>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                 @else
                                     <a href="{{ route('login') }}">Log in</a>
                                 @endif
@@ -97,7 +97,10 @@
                     </div><!-- /.navbar-collapse -->
                 </div>
             </nav>
-            
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+
         </header>
 
         <div id="main-container" class="container">

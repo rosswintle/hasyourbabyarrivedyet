@@ -24,8 +24,8 @@
 
                 <h2>How it works</h2>
 
-                <p>Start by <a href="{{ action('Auth\AuthController@getRegister') }}">signing up</a>, and then
-                <a href="{{ action( 'Auth\AuthController@getLogin') }}">log in</a> from your mobile up to 90
+                <p>Start by <a href="{{ url('/register') }}">signing up</a>, and then
+                <a href="{{ url('/login') }}">log in</a> from your mobile up to 90
                 days beforehand – it will remember who you are!</p>
 
                 <p>Then just return to the page, hit the
