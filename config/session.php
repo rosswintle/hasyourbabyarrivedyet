@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 120),
+    'lifetime' => 60 * 24 * 90, // 90 days!!
 
     'expire_on_close' => false,
 
@@ -153,7 +153,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => '.' . env('DOMAIN'),
 
     /*
     |--------------------------------------------------------------------------
