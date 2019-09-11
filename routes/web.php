@@ -45,9 +45,7 @@ Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
 } );
 
 // Use this later
-Route::group( ['middleware' => 'permissions'], function () {
-    Route::resource('user', 'UserController' );
-});
+Route::resource('user', 'UserController' );
 
 Route::post('user/toggle-state', 'UserController@toggleState');
 Route::post('/note', 'UserController@updateNote');

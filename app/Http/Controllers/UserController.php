@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\URL;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -20,6 +21,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (!Gate::allows('manage-users')) {
+            abort(401);
+        }
+
         return view('user/index', ['users' => User::all()]);
     }
 
@@ -63,6 +68,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        if (!Gate::allows('manage-users')) {
+            abort(401);
+        }
+
         return view('user/edit', ['user' => User::find($id)]);
     }
 
@@ -75,6 +84,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!Gate::allows('manage-users')) {
+            abort(401);
+        }
+
         User::find($id)->update($request->all());
         return view('user/edit', ['user' => User::find($id)]);
     }
@@ -87,6 +100,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        if (!Gate::allows('manage-users')) {
+            abort(401);
+        }
+
         User::destroy($id);
         return view('user/index', ['users' => User::all()]);
     }
