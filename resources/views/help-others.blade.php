@@ -28,7 +28,7 @@
                 <p>hasyourbabyarrivedyet is free, but if you use it and find it useful, please consider
                     supporting Child’s i by <a href="http://www.childsifoundation.org/">reading their stories</a>
                         and by
-                    <a href="http://www.childsifoundation.org/give">making a donation</a>.</p>
+                    <a href="http://www.childsifoundation.org/donate">making a donation</a>.</p>
 
                 <p>Thank you.</p>
 
