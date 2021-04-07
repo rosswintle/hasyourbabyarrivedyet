@@ -16,7 +16,7 @@
             <tbody>
                 <tr>
                     <td>Email: {{ $user->email }}</td>
-                    <td><a href="{{ action('UserController@edit', ['id' => $user->id]) }}">Edit user</a></td>
+                    <td><a href="{{ action('UserController@edit', ['user' => $user]) }}">Edit user</a></td>
                 </tr>
             </tbody>
         </table>

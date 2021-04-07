@@ -18,7 +18,7 @@
     @foreach ($users as $user)
         <tr>
             <td>
-                <a href="{{ action('UserController@show', ['id' => $user->id]) }}">
+                <a href="{{ action('UserController@show', ['user' => $user]) }}">
                     {{ $user->name }}
                 </a>
             </td>
@@ -29,7 +29,7 @@
             <td>{{ $user->note }}</td>
             <td>{{ $user->color_scheme }}</td>
             <td>
-                <form action="{{ action('UserController@destroy', ['id' => $user->id]) }}" method="POST">
+                <form action="{{ action('UserController@destroy', ['user' => $user]) }}" method="POST">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
                     <input type="submit" value="DELETE">
