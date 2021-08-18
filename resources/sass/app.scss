@@ -1,8 +1,11 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// $bootstrap-sass-asset-helper: true;
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 @import "_fonts";
 @import "_variables";
-@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "_mixins";
 @import "_typography";
 @import "_header";
