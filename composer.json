@@ -16,11 +16,12 @@
     "require": {
         "php": "^7.2|^8.0",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^7.4",
+        "laracasts/flash": "^3.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "rosswintle/recaptcha": "dev-master",
-        "laracasts/flash": "^3.0",
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.0",
+        "rosswintle/recaptcha": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
