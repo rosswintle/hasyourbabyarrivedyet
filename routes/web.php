@@ -1,71 +1,112 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 // Routes with subdomains
-Route::group( ['domain' => 'expecting.' .env('DOMAIN')], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
-Route::group( ['domain' => 'findoutmore.' .env('DOMAIN')], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
-Route::group( ['domain' => 'fedupofbeingasked.' .env('DOMAIN')], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
-Route::group( ['domain' => 'fedupwithbeingasked.' .env('DOMAIN')], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
+Route::group(
+    ['domain' => 'expecting.' .config('hasyourbabyarrivedyet.domain')], function () {
+        Route::get(
+            '/', function () {
+                return view('welcome');
+            }
+        );
+    }
+);
+Route::group(
+    ['domain' => 'findoutmore.' .config('hasyourbabyarrivedyet.domain')], function () {
+        Route::get(
+            '/', function () {
+                return view('welcome');
+            }
+        );
+    }
+);
+Route::group(
+    ['domain' => 'fedupofbeingasked.' .config('hasyourbabyarrivedyet.domain')], function () {
+        Route::get(
+            '/', function () {
+                return view('welcome');
+            }
+        );
+    }
+);
+Route::group(
+    ['domain' => 'fedupwithbeingasked.' .config('hasyourbabyarrivedyet.domain')], function () {
+        Route::get(
+            '/', function () {
+                return view('welcome');
+            }
+        );
+    }
+);
 
-Route::group( ['domain' => '{subdomain}.' . env('DOMAIN')], function () {
-    Route::get('/', [
-            'as' => 'user.profile.index',
-            'uses' => 'UserController@profile']
-    );
-    Route::get('/note', [
-            'as' => 'user.profile.note',
-            'uses' => 'UserController@editNote']
-    );
-} );
+Route::group(
+    ['domain' => '{subdomain}.' . config('hasyourbabyarrivedyet.domain')], function () {
+        Route::get(
+            '/',
+            [UserController::class, 'profile']
+        )->name('user.profile.index');
+        Route::get(
+            '/note',
+            [UserController::class, 'editNote']
+        )->name('user.profile.note');
+    }
+);
 
 // Use this later
-Route::resource('user', 'UserController' );
+Route::resource('user', UserController::class);
 
-Route::post('user/toggle-state', 'UserController@toggleState');
-Route::post('/note', 'UserController@updateNote');
+Route::post('user/toggle-state', [UserController::class, 'toggleState'])->name('user.toggle-state');
+Route::post('/note', [UserController::class, 'updateNote'])->name('user.update-note');
 
 // Profile route with no subdomain
-//Route::get('profile', 'UserController@edit');
+//Route::get('profile', [UserController::class, 'edit']);
 
-// Authentication routes...
-Auth::routes();
+// Authentication routes... this from old Laravel - not sure we still need it,
+// But what should replace it?
+// Auth::routes();
 
 // General page routes
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('how-it-works', function () {
-    return view('how-it-works');
-});
-Route::get('help-others', function () {
-    return view('help-others');
-});
-Route::get('terms', function () {
-    return view('terms');
-});
+Route::get(
+    '/', function () {
+        return view('welcome');
+    }
+);
+Route::get(
+    'how-it-works', function () {
+        return view('how-it-works');
+    }
+);
+Route::get(
+    'help-others', function () {
+        return view('help-others');
+    }
+);
+Route::get(
+    'terms', function () {
+        return view('terms');
+    }
+);
+
+
+/**
+ * DEFAULT / LARAVEL BREEZE ROUTES
+ */
+
+Route::get(
+    '/dashboard', function () {
+        return view('dashboard');
+    }
+)->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(
+    function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    }
+);
+
+require __DIR__.'/auth.php';

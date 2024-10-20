@@ -16,12 +16,12 @@
             <tbody>
                 <tr>
                     <td>Email: {{ $user->email }}</td>
-                    <td><a href="{{ action('UserController@edit', ['user' => $user]) }}">Edit user</a></td>
+                    <td><a href="{{ route('user.edit', ['user' => $user]) }}">Edit user</a></td>
                 </tr>
             </tbody>
         </table>
 
-        <a href="{{ action('UserController@index') }}">
+        <a href="{{ route('user.index') }}">
             Back to list
         </a>
     @endif

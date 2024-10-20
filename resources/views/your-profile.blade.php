@@ -14,13 +14,14 @@
             <h2>Current status:</h2>
             <div class="small-answer">{{ $profile->statusAsString() }}</div>
             <h2>Change status:</h2>
-            {!! Form::open(['method' => 'POST', 'action' => ['UserController@toggleState']]) !!}
+            <form method="POST" action="{{ route('user.toggle-state') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button class="big-red-button">Change<br>Status</button>
-            {!! Form::close() !!}
+            </form>
             <h2>Current note:</h2>
             <p>
                 {!! $profile->note !!}
-                <br><a class="btn btn-default" href="{{ URL::route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</a>
+                <br><a class="btn btn-default" href="{{ route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</a>
             </p>
 
         </div>
