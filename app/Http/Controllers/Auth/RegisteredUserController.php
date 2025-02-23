@@ -33,12 +33,23 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'display_name' => ['required', 'max:255'],
+            'g-recaptcha-response' => ['required', 'recaptchav3:register,0.5'],
+            'domain' => [
+                'required',
+                'unique:users',
+                'alpha_num',
+                'not_in:expecting,findoutmore,fedupofbeingasked,fedupwithbeingasked',
+            ],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'display_name' => $request->display_name,
+            'domain' => $request->domain,
+            'color_scheme' => $request->color_scheme,
         ]);
 
         event(new Registered($user));

@@ -34,6 +34,8 @@
 
         <link rel='stylesheet' id='googleFonts-css'  href='https://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C400italic%2C700italic%7CLife+Savers%7CRanchers%7CVarela+Round' type='text/css' media='all' />
 
+        {!! RecaptchaV3::initJs() !!}
+
         @vite('resources/sass/app.scss')
     </head>
 
