@@ -1,52 +1,119 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!-- resources/views/auth/register.blade.php -->
+@extends('layouts.master')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@section('title', 'Sign up - hasyourbabyarrivedyet.com - Simple sites for sharing baby news')
+
+@section('description', 'Simple baby arrival announcement sites for sharing baby news and answering the question: Has your baby arrived yet?')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        <p class="text-center">
+                            To get your page you'll just need to give us a few details and make
+                            some simple choices.
+                        </p>
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your details.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                    <p class="field-description">Please tell us your name</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">E-Mail Address</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                    <p class="field-description">Please tell us your email address - you will use this to log in</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Display name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="display_name" value="{{ old('display_name') }}">
+                                    <p class="field-description">The display name will be the name(s) shown on your profile page.
+                                    This will usually be something like "Kate and William"</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Domain</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="domain" value="{{ old('domain') }}">
+                                    <p class="field-description">The domain is the bit of the website address that goes
+                                        before "hasyourbabyarrivedyet.com". It must be letters, numbers and hyphens with
+                                    no spaces allowed. e.g. "kateandwilliam"</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" name="password">
+                                    <p class="field-description">Please enter a password</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Confirm Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" name="password_confirmation">
+                                    <p class="field-description">Please enter your password again</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Colour scheme</label>
+                                <div class="col-md-6">
+                                    <select type="password" class="form-control" name="color_scheme">
+                                        <option value="pink">Pink</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="violet">Violet</option>
+                                        <option value="red">Red</option>
+                                        <option value="deep-orange">Deep Orange</option>
+                                        <option value="dark-green">Dark Green</option>
+                                        <option value="mint-green">Mint Green</option>
+                                    </select>
+                                    <p class="field-description">Choose a colour-scheme for your page</p>
+                                </div>
+                            </div>
+
+                            {!! RecaptchaV3::field('register', $name='g-recaptcha-response') !!}
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                    <p class="field-description">Please note that there are some simple
+                                        <a href="{{ url('terms') }}">terms and conditions</a> that apply to all
+                                    users of this website.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection
