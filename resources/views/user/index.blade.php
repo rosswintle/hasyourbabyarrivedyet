@@ -1,3 +1,5 @@
+
+
 @extends('layouts.master')
 
 @section('content')
@@ -18,18 +20,18 @@
     @foreach ($users as $user)
         <tr>
             <td>
-                <a href="{{ action('UserController@show', ['user' => $user]) }}">
+                <a href="{{ route('user.show', ['user' => $user]) }}">
                     {{ $user->name }}
                 </a>
             </td>
             <td>{{ $user->email }}</td>
-            <td><a href="{{ action('UserController@profile', ['subdomain' => $user->domain]) }}">{{ $user->domain }}</a></td>
+            <td><a href="{{ route('user.profile.index', ['subdomain' => $user->domain]) }}">{{ $user->domain }}</a></td>
             <td>{{ $user->display_name }}</td>
             <td>{{ $user->statusAsString() }}</td>
             <td>{{ $user->note }}</td>
             <td>{{ $user->color_scheme }}</td>
             <td>
-                <form action="{{ action('UserController@destroy', ['user' => $user]) }}" method="POST">
+                <form action="{{ route('user.destroy', ['user' => $user]) }}" method="POST">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
                     <input type="submit" value="DELETE">
@@ -39,4 +41,3 @@
     </tbody>
 </table>
 @endsection
-

@@ -98,14 +98,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label"></label>
-                                <div class="col-md-6">
-                                    {!! Recaptcha::render() !!}
-                                    <p class="field-description">Unfortunately we need you to do this for security and to
-                                        prevent spam registrations.</p>
-                                </div>
-                            </div>
+                            {!! RecaptchaV3::field('register', $name='g-recaptcha-response') !!}
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

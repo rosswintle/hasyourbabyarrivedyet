@@ -12,14 +12,15 @@
             @include('flash::message')
             <h1 class="display-name">{{ $user->display_name }}</h1>
             <h2>Edit note:</h2>
-            {!! Form::open(['method' => 'POST', 'action' => ['UserController@updateNote']]) !!}
+            <form method="POST" action="{{ route('user.update-note') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <p>
-                    {!! Form::text('note', $user->note) !!}
+                    <input type="text" name="note" value="{{ $user->note }}">
                 </p>
                 <p>
-                    {!! Form::submit('Change it!', ['class' => 'btn btn-default']) !!}
+                    <input type="submit" value="Change it!" class="btn btn-default">
                 </p>
-            {!! Form::close() !!}
+            </form>
 
         </div>
     </div>

@@ -12,10 +12,12 @@ class AddColorAndNoteToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('color_scheme')->default('pink');
-            $table->string('note')->default('');
-        });
+        Schema::table(
+            'users', function (Blueprint $table) {
+                $table->string('color_scheme')->default('pink');
+                $table->string('note')->default('');
+            }
+        );
     }
 
     /**
@@ -25,9 +27,11 @@ class AddColorAndNoteToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('color_scheme');
-            $table->dropColumn('note');
-        });
+        Schema::table(
+            'users', function (Blueprint $table) {
+                $table->dropColumn('color_scheme');
+                $table->dropColumn('note');
+            }
+        );
     }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 
-use App\User;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Controllers\URL;
+use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -41,7 +42,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -52,18 +53,18 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
     {
-        return view('user/show', [ 'user' => User::find($id)] );
+        return view('user/show', [ 'user' => User::find($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -78,8 +79,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int     $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -88,14 +89,31 @@ class UserController extends Controller
             abort(401);
         }
 
-        User::find($id)->update($request->all());
+        $validated = $request->validate(
+            [
+                'name' => 'required|string|max:191',
+                'email' => 'required|string|email|max:191|unique:users,email,' . $id,
+                'status' => 'required|boolean',
+                'display_name' => 'required|string|max:191',
+                'domain' => 'required|string|max:191|unique:users,domain,' . $id,
+                'color_scheme' => 'required|string|max:191',
+                'note' => 'nullable|string|max:2048',
+            ]
+        );
+
+        $validated['note'] ??= '';
+
+        User::find($id)->update(
+            $validated
+        );
+
         return view('user/edit', ['user' => User::find($id)]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
@@ -109,20 +127,21 @@ class UserController extends Controller
     }
 
     /**
-     * @param null $subdomain
+     * @param  null $subdomain
      * @return \Illuminate\View\View
      */
-    public function profile(Request $request, $subdomain) {
+    public function profile(Request $request, $subdomain)
+    {
 
         $profile = User::where('domain', $subdomain)->first();
         $notice = null;
-        if($profile) {
+        if ($profile) {
             $domain = $profile->domain;
             $color_scheme_class = 'hybay-color-scheme-hybay-' . $profile->color_scheme;
 
             if (Auth::check()) {
                 $user = Auth::user();
-                if ($user->id == $profile->id) {
+                if ($user->id === $profile->id) {
                     return view('your-profile', compact('profile', 'domain', 'color_scheme_class', 'notice'));
                 }
             }
@@ -132,25 +151,19 @@ class UserController extends Controller
         }
     }
 
-    public function toggleState(Request $request) {
+    public function toggleState(Request $request)
+    {
         $user = Auth::user();
         $current_status = $user->status;
         $new_status = ! $current_status;
         $user->update(array('status' => $new_status));
-
-        $request->session()->flash('send_ga_event', [
-            'category' => 'userEvents',
-            'action' => 'stateToggled',
-            'label' => $user->domain,
-            'value' => 1
-        ]);
 
         if ($new_status) {
             flash('Status updated - congratulations! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">set a note</a>?')->success();
         } else {
             flash('Status updated - what happened?! Do you want to <a href="' . route('user.profile.note', [ $user->domain ]) . '">change your note</a> too?')->success();
         }
-        return redirect()->action('UserController@profile', Auth::user()->domain);
+        return redirect()->action([UserController::class, 'profile'], Auth::user()->domain);
     }
 
     public function editNote($subdomain)
@@ -172,7 +185,7 @@ class UserController extends Controller
         $user = Auth::user();
         $user->update(['note' => $request->input('note')]);
         flash('Note updated')->success();
-        return redirect()->action('UserController@profile', Auth::user()->domain);
+        return redirect()->action([UserController::class, 'profile'], Auth::user()->domain);
     }
 
 }
