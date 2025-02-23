@@ -56,6 +56,20 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return $this->redirectTo();
+    }
+
+    /**
+     * Set the redirect path after login based on the domain.
+     *
+     * This is duplicated in the AuthenticatedSessionController.
+     */
+    public function redirectTo(): RedirectResponse
+    {
+        $url = config('app.url');
+        $subDomain = Auth::user()->domain;
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        $host = parse_url($url, PHP_URL_HOST);
+        return redirect()->intended($scheme.'://'.$subDomain.'.'.$host);
     }
 }

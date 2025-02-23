@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return $this->redirectTo();
     }
 
     /**
@@ -44,4 +44,19 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * Set the redirect path after login based on the domain.
+     *
+     * This is duplicated in the RegisteredUserController.
+     */
+    public function redirectTo(): RedirectResponse
+    {
+        $url = config('app.url');
+        $subDomain = Auth::user()->domain;
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        $host = parse_url($url, PHP_URL_HOST);
+        return redirect()->intended($scheme.'://'.$subDomain.'.'.$host);
+    }
+
 }
