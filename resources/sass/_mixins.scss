@@ -1,3 +1,4 @@
+@use "sass:map";
 /* Responsive mixins */
 $breakpoints: (
         'small'  : 767px,
@@ -6,7 +7,7 @@ $breakpoints: (
 );
 @mixin respond-to($breakpoint) {
   // Retrieves the value from the key
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get($breakpoints, $breakpoint);
 
   // If the key exists in the map
   @if $value != null {

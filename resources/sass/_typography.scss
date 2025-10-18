@@ -1,12 +1,17 @@
+@use "sass:map";
+@use "fonts";
+@use "mixins";
+@use "variables";
+
 h1.small-on-mobile {
   font-size: 24px;
 }
-@include respond-to(small) {
+@include mixins.respond-to(small) {
   h1.small-on-mobile {
     font-size: 36px;
   }
 }
-@include respond-to(medium) {
+@include mixins.respond-to(medium) {
   h1.small-on-mobile {
     font-size: 56px;
   }
@@ -16,53 +21,53 @@ h1.small-on-mobile {
   margin-bottom: 50px;
 }
 .answer {
-  font-family: $block-font;
+  font-family: fonts.$block-font;
   color: #000000;
   font-size: 170px;
   margin: 0 0 40px 0;
-  @include respond-to(small) {
+  @include mixins.respond-to(small) {
     font-size: 250px;
   }
 }
 .small-answer {
-  font-family: $block-font;
+  font-family: fonts.$block-font;
   color: #000000;
   font-size: 80px;
   margin: 0 0 40px 0;
 }
 .big-red-button {
-  background-color: $hybay-pink;
+  background-color: variables.$hybay-pink;
   border: none;
   color: #FFFFFF;
   border-radius: 100%;
   padding: 1.5em 1em;
   font-size: 2em;
   font-weight: bold;
-  box-shadow: 3px 3px 2px 3px $hybay-dark-pink;
+  box-shadow: 3px 3px 2px 3px variables.$hybay-dark-pink;
 }
 .big-red-button:hover {
   position: relative;
   left: 2px;
   top: 2px;
-  box-shadow: 1px 1px 1px 1px $hybay-dark-pink;
+  box-shadow: 1px 1px 1px 1px variables.$hybay-dark-pink;
 }
 @each $color in hybay-pink, hybay-blue, hybay-purple, hybay-violet, hybay-red, hybay-deep-orange, hybay-dark-green, hybay-mint-green {
   body.hybay-color-scheme-#{$color} {
     a, a:visited {
-      color: map-get($hybay-colors, #{$color});
+      color: map.get(variables.$hybay-colors, #{$color});
     }
     h1, h2 {
-      color: map-get($hybay-colors, #{$color});
+      color: map.get(variables.$hybay-colors, #{$color});
     }
     .big-red-button {
-      background-color: map-get($hybay-colors, #{$color});
-      box-shadow: 3px 3px 2px 2px map-get($hybay-dark-colors, #{$color});
+      background-color: map.get(variables.$hybay-colors, #{$color});
+      box-shadow: 3px 3px 2px 2px map.get(variables.$hybay-dark-colors, #{$color});
     }
     .big-red-button:hover {
-      box-shadow: 1px 1px 1px 1px map-get($hybay-dark-colors, #{$color});
+      box-shadow: 1px 1px 1px 1px map.get(variables.$hybay-dark-colors, #{$color});
     }
     .hybay-input-text {
-      border: 2px solid map-get($hybay-light-colors, #{$color});
+      border: 2px solid map.get(variables.$hybay-light-colors, #{$color});
     }
 
   }
@@ -70,7 +75,7 @@ h1.small-on-mobile {
 
 .field-description {
   font-size: 14px;
-  color: $medium-gray;
+  color: variables.$medium-gray;
   margin-top: 6px;
   margin-bottom: 8px;
 }

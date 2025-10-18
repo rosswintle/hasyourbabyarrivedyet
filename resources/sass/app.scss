@@ -1,16 +1,16 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 // $bootstrap-sass-asset-helper: true;
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@use "../../node_modules/bootstrap/scss/bootstrap";
 
-@import "_fonts";
-@import "_variables";
+@use "_fonts";
+@use "_variables";
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "_mixins";
-@import "_typography";
-@import "_header";
-@import "_footer";
+// @use "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap" with ($icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/");
+@use "_mixins";
+@use "_typography";
+@use "_header";
+@use "_footer";
 //@import "from-bones/style";
 
 #main-container {

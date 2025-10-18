@@ -1,5 +1,7 @@
+@use "variables";
+
 footer {
-  background-color: $dark-gray;
+  background-color: variables.$dark-gray;
   padding-top: 40px;
   padding-bottom: 40px;
   margin-top: 40px;

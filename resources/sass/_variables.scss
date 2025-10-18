@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "fonts";
+
 /*
  * HYBAY COLOURS
  */
@@ -9,23 +12,23 @@ $hybay-blue: #14ACCC; // This is a triad from the pink
 $hybay-dark-blue: #077187;
 $hybay-light-blue: #0CC6ED;
 $hybay-purple: #E843DB;
-$hybay-dark-purple: darken($hybay-purple, 20%);
-$hybay-light-purple: lighten($hybay-purple, 20%);
+$hybay-dark-purple: color.adjust($hybay-purple, $lightness: -20%);
+$hybay-light-purple: color.adjust($hybay-purple, $lightness: 20%);
 $hybay-violet: #E594FF;
-$hybay-dark-violet: darken($hybay-violet, 20%);
-$hybay-light-violet: lighten($hybay-violet, 20%);
+$hybay-dark-violet: color.adjust($hybay-violet, $lightness: -20%);
+$hybay-light-violet: color.adjust($hybay-violet, $lightness: 20%);
 $hybay-red: #E83E38;
-$hybay-dark-red: darken($hybay-red, 20%);
-$hybay-light-red: lighten($hybay-red, 20%);
+$hybay-dark-red: color.adjust($hybay-red, $lightness: -20%);
+$hybay-light-red: color.adjust($hybay-red, $lightness: 20%);
 $hybay-deep-orange: #FF613D;
-$hybay-dark-deep-orange: darken($hybay-deep-orange, 20%);
-$hybay-light-deep-orange: lighten($hybay-deep-orange, 20%);
+$hybay-dark-deep-orange: color.adjust($hybay-deep-orange, $lightness: -20%);
+$hybay-light-deep-orange: color.adjust($hybay-deep-orange, $lightness: 20%);
 $hybay-dark-green: #00B20A;
-$hybay-dark-dark-green: darken($hybay-dark-green, 20%);
-$hybay-light-dark-green: lighten($hybay-dark-green, 20%);
+$hybay-dark-dark-green: color.adjust($hybay-dark-green, $lightness: -20%);
+$hybay-light-dark-green: color.adjust($hybay-dark-green, $lightness: 20%);
 $hybay-mint-green: #0ABFA0;
-$hybay-dark-mint-green: darken($hybay-mint-green, 20%);
-$hybay-light-mint-green: lighten($hybay-mint-green, 20%);
+$hybay-dark-mint-green: color.adjust($hybay-mint-green, $lightness: -20%);
+$hybay-light-mint-green: color.adjust($hybay-mint-green, $lightness: 20%);
 /*
 Other colours that are good/analogous:
 #E843DB - purple
@@ -95,8 +98,8 @@ $disabled-gray:     #cfcfcf;
 $brand-primary: $hybay-pink;
 $navbar-default-brand-color: $hybay-pink;
 
-$font-family-base: $cursive-font;
-$headings-font-family: $block-font;
+$font-family-base: fonts.$cursive-font;
+$headings-font-family: fonts.$block-font;
 $font-size-base: 18px;
 
 $input-color: $black;

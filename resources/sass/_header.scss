@@ -1,8 +1,12 @@
+@use "fonts";
+@use "mixins";
+@use "variables";
+
 .navbar-brand {
   font-size: 20px;
-  font-family: $block-font;
-  color: $hybay-pink;
-  @include respond-to(medium) {
+  font-family: fonts.$block-font;
+  color: variables.$hybay-pink;
+  @include mixins.respond-to(medium) {
     font-size: 23px;
   }
 }
