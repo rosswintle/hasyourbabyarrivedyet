@@ -39,21 +39,24 @@
         @vite('resources/css/app.css')
     </head>
 
-    <body class="{{ $color_scheme_class ?? 'hybay-color-scheme-hybay-pink' }}">
+    <body style="
+     --color-hybay-primary: var(--color-hybay-{{ $color_scheme_class ?? 'pink' }});
+     --color-hybay-dark: var(--color-hybay-dark-{{ $color_scheme_class ?? 'pink' }});
+     --color-hybay-light: var(--color-hybay-light-{{ $color_scheme_class ?? 'pink' }});
+     }">
         <header>
 
-            <nav class="w-full bg-gray-200">
+            <nav class="w-full bg-gray-200 py-4">
                 <div class="container mx-auto">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                        {{-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
-                        <a class="font-display text-pink-500 text-xl md:text-2xl" href="{{ config('app.url') }}/">
+                        </button> --}}
+                        <a class="font-display text-primary text-xl md:text-2xl" href="{{ config('app.url') }}/">
                             hasyourbabyarrivedyet.com
-                            <img src="">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">

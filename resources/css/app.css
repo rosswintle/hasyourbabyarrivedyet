@@ -2,13 +2,48 @@
 
 @plugin '@tailwindcss/forms';
 
-@theme {
+/* Use static option to always get all the colors */
+@theme static {
   --font-sans:
     Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-display: "Ranchers", Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-lato: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-cursive: "Life Savers", Helvetica Neue, Helvetica, Arial, sans-serif;
+  --color-hybay-pink: #FF4A93;
+  --color-hybay-light-pink: #FF9CC3;
+  --color-hybay-dark-pink: #AB3262;
+  --color-hybay-blue: #14ACCC;
+  --color-hybay-dark-blue: #077187;
+  --color-hybay-light-blue: #0CC6ED;
+  --color-hybay-purple: #E843DB;
+  --color-hybay-dark-purple: darken($hybay-purple, 20%);
+  --color-hybay-light-purple: lighten($hybay-purple, 20%);
+  --color-hybay-violet: #E594FF;
+  --color-hybay-dark-violet: darken($hybay-violet, 20%);
+  --color-hybay-light-violet: lighten($hybay-violet, 20%);
+  --color-hybay-red: #E83E38;
+  --color-hybay-dark-red: darken($hybay-red, 20%);
+  --color-hybay-light-red: lighten($hybay-red, 20%);
+  --color-hybay-deep-orange: #FF613D;
+  --color-hybay-dark-deep-orange: darken($hybay-deep-orange, 20%);
+  --color-hybay-light-deep-orange: lighten($hybay-deep-orange, 20%);
+  --color-hybay-dark-green: #00B20A;
+  --color-hybay-dark-dark-green: darken($hybay-dark-green, 20%);
+  --color-hybay-light-dark-green: lighten($hybay-dark-green, 20%);
+  --color-hybay-mint-green: #0ABFA0;
+  --color-hybay-dark-mint-green: darken($hybay-mint-green, 20%);
+  --color-hybay-light-mint-green: lighten($hybay-mint-green, 20%);
+}
+
+@theme inline static {
+    /* Selected color - the indirection is needed for overrides to work! */
+    --color-hybay-primary: var(--color-hybay-pink);
+    --color-hybay-dark: var(--color-hybay-dark-pink);
+    --color-hybay-light: var(--color-hybay-light-pink);
+    --color-primary: var(--color-hybay-primary);
+    --color-dark: var(--color-hybay-dark);
+    --color-light: var(--color-hybay-light);
 }
 
 /*
