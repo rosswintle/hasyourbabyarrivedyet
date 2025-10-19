@@ -3,12 +3,7 @@
 @use "variables";
 
 .navbar-brand {
-  font-size: 20px;
-  font-family: fonts.$block-font;
-  color: variables.$hybay-pink;
-  @include mixins.respond-to(medium) {
-    font-size: 23px;
-  }
+//Done
 }
 .hero-row {
   margin-bottom: 60px;

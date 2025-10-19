@@ -36,28 +36,40 @@
 
         {!! RecaptchaV3::initJs() !!}
 
-        @vite('resources/sass/app.scss')
+        @vite('resources/css/app.css')
     </head>
 
-    <body class="{{ $color_scheme_class ?? 'hybay-color-scheme-hybay-pink' }}">
+    <body
+    class="relative min-h-screen pb-32"
+    style="
+     --color-hybay-primary: var(--color-hybay-{{ $color_scheme ?? 'pink' }});
+     --color-hybay-dark: var(--color-hybay-dark-{{ $color_scheme ?? 'pink' }});
+     --color-hybay-light: var(--color-hybay-light-{{ $color_scheme ?? 'pink' }});
+     }">
         <header>
 
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
+            <nav class="w-full bg-gray-200 px-6 py-4">
+                <div class="container mx-auto flex justify-between align-center">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ config('app.url') }}/">hasyourbabyarrivedyet.com</a>
+                        <a class="font-display text-primary text-xl md:text-2xl" href="{{ config('app.url') }}/">
+                            hasyourbabyarrivedyet.com
+                        </a>
                     </div>
-                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
+                    <div x-data="{ open: false }" class="relative md:flex md:items-center">
+                        <button type="button" @click="open=!open" class="md:hidden w-4 h-4">
+                            <span class="sr-only md:hidden">Toggle navigation</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
+
+                        <ul
+                        class="
+                            max-md:absolute max-md:top-12 max-md:right-0 max-md:bg-white max-md:p-3 max-md:flex-col max-md:w-50 max-md:shadow-lg max-md:border-gray-300
+                            flex gap-4 items-center"
+                        :class="!open && 'max-md:hidden'"
+                        >
+                            <li class="">
                                 <a href="{{ config('app.url') }}">Home</a>
                             </li>
                             @if (Auth::user() && Auth::user()->isAdmin())
@@ -86,7 +98,7 @@
                                 @endif
                             </li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
+                    </div>
                 </div>
             </nav>
             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -95,22 +107,22 @@
 
         </header>
 
-        <div id="main-container" class="container">
+        <div id="main-container" class="container max-w-4xl mx-auto px-6">
             @yield('content')
         </div>
 
-        <footer class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="{{ url('terms') }}">Terms, Conditions and Privacy</a>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        An <a href="https://oikos.digital/">Oikos</a> project
-                    </div>
+        <footer class="absolute bottom-0 left-0 w-full bg-gray-200 px-6 py-4">
+            <div class="container mx-auto flex justify-between align-center">
+                <div id="footer-left">
+                    <a href="{{ url('terms') }}">Terms, Conditions and Privacy</a>
+                </div>
+                <div id="footer-right">
+                    An <a href="https://oikos.digital/">Oikos</a> project
                 </div>
             </div>
         </footer>
+
+        @vite('resources/js/app.js')
 
         @env('production')
             <!-- Fathom - beautiful, simple website analytics -->
