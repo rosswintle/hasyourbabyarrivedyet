@@ -51,46 +51,54 @@
             <nav class="w-full bg-gray-200 px-6 py-4">
                 <div class="container mx-auto flex justify-between align-center">
                     <div class="navbar-header">
-                        {{-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button> --}}
                         <a class="font-display text-primary text-xl md:text-2xl" href="{{ config('app.url') }}/">
                             hasyourbabyarrivedyet.com
                         </a>
                     </div>
-                    <ul class="flex gap-4 items-center">
-                        <li class="">
-                            <a href="{{ config('app.url') }}">Home</a>
-                        </li>
-                        @if (Auth::user() && Auth::user()->isAdmin())
-                            <li>
-                                <a href="{{ action([App\Http\Controllers\UserController::class, 'index']) }}">User Management</a>
+                    <div x-data="{ open: false }" class="relative md:flex md:items-center">
+                        <button type="button" @click="open=!open" class="md:hidden w-4 h-4">
+                            <span class="sr-only md:hidden">Toggle navigation</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
+
+                        <ul
+                        class="
+                            max-md:absolute max-md:top-12 max-md:right-0 max-md:bg-white max-md:p-3 max-md:flex-col max-md:w-50 max-md:shadow-lg max-md:border-gray-300
+                            flex gap-4 items-center"
+                        :class="!open && 'max-md:hidden'"
+                        >
+                            <li class="">
+                                <a href="{{ config('app.url') }}">Home</a>
                             </li>
-                        @endif
-                        <li>
-                            <a href="{{ url('how-it-works') }}">How it works</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('help-others') }}">Help other children</a>
-                        </li>
-                        <li>
-                            @if (Auth::user())
-                                <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
-                            @else
-                                <a href="{{ route('register') }}">Sign Up</a>
+                            @if (Auth::user() && Auth::user()->isAdmin())
+                                <li>
+                                    <a href="{{ action([App\Http\Controllers\UserController::class, 'index']) }}">User Management</a>
+                                </li>
                             @endif
-                        </li>
-                        <li>
-                            @if (Auth::user())
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                            @else
-                                <a href="{{ route('login') }}">Log in</a>
-                            @endif
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="{{ url('how-it-works') }}">How it works</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('help-others') }}">Help other children</a>
+                            </li>
+                            <li>
+                                @if (Auth::user())
+                                    <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
+                                @else
+                                    <a href="{{ route('register') }}">Sign Up</a>
+                                @endif
+                            </li>
+                            <li>
+                                @if (Auth::user())
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                @else
+                                    <a href="{{ route('login') }}">Log in</a>
+                                @endif
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -113,6 +121,8 @@
                 </div>
             </div>
         </footer>
+
+        @vite('resources/js/app.js')
 
         @env('production')
             <!-- Fathom - beautiful, simple website analytics -->

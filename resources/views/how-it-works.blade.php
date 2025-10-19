@@ -6,12 +6,12 @@
 
 @section('content')
         <x-main-heading>hasyourbabyarrivedyet.com</x-main-heading>
-        <div class="mt-20 md:flex md:gap-6">
-            <div class="w-1/3 md:order-2">
-                <img class="img-responsive center-block" src="/images/mobile-mockup.jpg">
+        <div class="mt-10 md:mt-20 md:flex md:gap-6">
+            <div class="mb-10 md:w-1/3 md:order-2">
+                <img class="block mx-auto max-w-64" src="/images/mobile-mockup.jpg">
             </div>
 
-            <div class="w-2/3 md:order-1 text-lg">
+            <div class="md:w-2/3 md:order-1 text-lg">
                 <x-sub-heading>What it is</x-sub-heading>
 
                 <p class="mb-4"><strong>hasyourbabyarrivedyet.com</strong> is a simple service that stops your friends and family having to

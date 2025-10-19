@@ -15,11 +15,11 @@
             <x-button href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</x-button>
         @endif
     </p>
-    <div class="mt-20 md:flex md:gap-6">
-        <div class="w-1/3 md:order-2">
-            <img class="img-responsive center-block" src="/images/mobile-mockup.jpg">
+    <div class="mt-10 md:mt-20 md:flex md:gap-6">
+        <div class="mb-10 md:w-1/3 md:order-2">
+            <img class="block mx-auto max-w-64" src="/images/mobile-mockup.jpg">
         </div>
-        <div class="w-2/3 md:order-1 text-lg">
+        <div class="md:w-2/3 md:order-1 text-lg">
             <h2 class="text-4xl text-hybay-pink mb-6 font-bold">What is this?</h2>
 
             <p class="mb-4">It&apos;s a fun side project of mine!</p>
