@@ -39,15 +39,17 @@
         @vite('resources/css/app.css')
     </head>
 
-    <body style="
-     --color-hybay-primary: var(--color-hybay-{{ $color_scheme_class ?? 'pink' }});
-     --color-hybay-dark: var(--color-hybay-dark-{{ $color_scheme_class ?? 'pink' }});
-     --color-hybay-light: var(--color-hybay-light-{{ $color_scheme_class ?? 'pink' }});
+    <body
+    class="relative min-h-screen pb-32"
+    style="
+     --color-hybay-primary: var(--color-hybay-{{ $color_scheme ?? 'pink' }});
+     --color-hybay-dark: var(--color-hybay-dark-{{ $color_scheme ?? 'pink' }});
+     --color-hybay-light: var(--color-hybay-light-{{ $color_scheme ?? 'pink' }});
      }">
         <header>
 
-            <nav class="w-full bg-gray-200 py-4">
-                <div class="container mx-auto">
+            <nav class="w-full bg-gray-200 px-6 py-4">
+                <div class="container mx-auto flex justify-between align-center">
                     <div class="navbar-header">
                         {{-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
@@ -59,40 +61,36 @@
                             hasyourbabyarrivedyet.com
                         </a>
                     </div>
-                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                    <ul class="flex gap-4 items-center">
+                        <li class="">
+                            <a href="{{ config('app.url') }}">Home</a>
+                        </li>
+                        @if (Auth::user() && Auth::user()->isAdmin())
                             <li>
-                                <a href="{{ config('app.url') }}">Home</a>
+                                <a href="{{ action([App\Http\Controllers\UserController::class, 'index']) }}">User Management</a>
                             </li>
-                            @if (Auth::user() && Auth::user()->isAdmin())
-                                <li>
-                                    <a href="{{ action([App\Http\Controllers\UserController::class, 'index']) }}">User Management</a>
-                                </li>
+                        @endif
+                        <li>
+                            <a href="{{ url('how-it-works') }}">How it works</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('help-others') }}">Help other children</a>
+                        </li>
+                        <li>
+                            @if (Auth::user())
+                                <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
+                            @else
+                                <a href="{{ route('register') }}">Sign Up</a>
                             @endif
-                            <li>
-                                <a href="{{ url('how-it-works') }}">How it works</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('help-others') }}">Help other children</a>
-                            </li>
-                            <li>
-                                @if (Auth::user())
-                                    <a href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</a>
-                                @else
-                                    <a href="{{ route('register') }}">Sign Up</a>
-                                @endif
-                            </li>
-                            <li>
-                                @if (Auth::user())
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                @else
-                                    <a href="{{ route('login') }}">Log in</a>
-                                @endif
-                            </li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
+                        </li>
+                        <li>
+                            @if (Auth::user())
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            @else
+                                <a href="{{ route('login') }}">Log in</a>
+                            @endif
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -101,19 +99,17 @@
 
         </header>
 
-        <div id="main-container" class="container">
+        <div id="main-container" class="container max-w-4xl mx-auto px-6">
             @yield('content')
         </div>
 
-        <footer class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="{{ url('terms') }}">Terms, Conditions and Privacy</a>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        An <a href="https://oikos.digital/">Oikos</a> project
-                    </div>
+        <footer class="absolute bottom-0 left-0 w-full bg-gray-200">
+            <div class="flex justify-between align-center px-6 py-4">
+                <div id="footer-left">
+                    <a href="{{ url('terms') }}">Terms, Conditions and Privacy</a>
+                </div>
+                <div id="footer-right">
+                    An <a href="https://oikos.digital/">Oikos</a> project
                 </div>
             </div>
         </footer>

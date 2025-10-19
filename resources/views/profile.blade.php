@@ -7,15 +7,11 @@
 @section('display_name', $profile->display_name)
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            @include('flash::message')
-            <h1 class="display-name">{{ $profile->display_name }}</h1>
-            <h2>Has your baby arrived yet?</h2>
-            <div class="answer">{{ $profile->statusAsString() }}</div>
-            <p>
-                {!! $profile->note !!}
-            </p>
-        </div>
-    </div>
+    @include('flash::message')
+    <x-main-heading>{{ $profile->display_name }}</x-main-heading>
+    <h2 class="text-4xl font-cursive font-bold text-center mb-24">Has your baby arrived yet?</h2>
+    <div class="text-8xl font-display text-center">{{ $profile->statusAsString() }}</div>
+    <p>
+        {!! $profile->note !!}
+    </p>
 @endsection

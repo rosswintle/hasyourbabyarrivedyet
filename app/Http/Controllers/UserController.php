@@ -137,15 +137,26 @@ class UserController extends Controller
         $notice = null;
         if ($profile) {
             $domain = $profile->domain;
-            $color_scheme_class = 'hybay-color-scheme-hybay-' . $profile->color_scheme;
 
             if (Auth::check()) {
                 $user = Auth::user();
                 if ($user->id === $profile->id) {
-                    return view('your-profile', compact('profile', 'domain', 'color_scheme_class', 'notice'));
+                    return view(
+                        'your-profile', [
+                        'profile' => $profile,
+                        'domain' => $domain,
+                        'color_scheme' => $profile->color_scheme,
+                        'notice' => $notice]
+                    );
                 }
             }
-            return view('profile', compact('profile', 'domain', 'color_scheme_class', 'notice'));
+            return view(
+                'profile', [
+                'profile' => $profile,
+                'domain' => $domain,
+                'color_scheme' => $profile->color_scheme,
+                'notice' => $notice]
+            );
         } else {
             return response('Profile not found', 404);
         }
