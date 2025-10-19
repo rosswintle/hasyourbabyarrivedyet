@@ -103,8 +103,8 @@
             @yield('content')
         </div>
 
-        <footer class="absolute bottom-0 left-0 w-full bg-gray-200">
-            <div class="flex justify-between align-center px-6 py-4">
+        <footer class="absolute bottom-0 left-0 w-full bg-gray-200 px-6 py-4">
+            <div class="container mx-auto flex justify-between align-center">
                 <div id="footer-left">
                     <a href="{{ url('terms') }}">Terms, Conditions and Privacy</a>
                 </div>
