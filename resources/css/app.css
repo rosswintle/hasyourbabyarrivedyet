@@ -1,39 +1,41 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/forms';
 
 /* Use static option to always get all the colors */
 @theme static {
-  --font-sans:
-    Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-display: "Ranchers", Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-lato: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-cursive: "Life Savers", Helvetica Neue, Helvetica, Arial, sans-serif;
-  --color-hybay-pink: #FF4A93;
-  --color-hybay-light-pink: #FF9CC3;
-  --color-hybay-dark-pink: #AB3262;
-  --color-hybay-blue: #14ACCC;
-  --color-hybay-dark-blue: #077187;
-  --color-hybay-light-blue: #0CC6ED;
-  --color-hybay-purple: #E843DB;
-  --color-hybay-dark-purple: darken($hybay-purple, 20%);
-  --color-hybay-light-purple: lighten($hybay-purple, 20%);
-  --color-hybay-violet: #E594FF;
-  --color-hybay-dark-violet: darken($hybay-violet, 20%);
-  --color-hybay-light-violet: lighten($hybay-violet, 20%);
-  --color-hybay-red: #E83E38;
-  --color-hybay-dark-red: darken($hybay-red, 20%);
-  --color-hybay-light-red: lighten($hybay-red, 20%);
-  --color-hybay-deep-orange: #FF613D;
-  --color-hybay-dark-deep-orange: darken($hybay-deep-orange, 20%);
-  --color-hybay-light-deep-orange: lighten($hybay-deep-orange, 20%);
-  --color-hybay-dark-green: #00B20A;
-  --color-hybay-dark-dark-green: darken($hybay-dark-green, 20%);
-  --color-hybay-light-dark-green: lighten($hybay-dark-green, 20%);
-  --color-hybay-mint-green: #0ABFA0;
-  --color-hybay-dark-mint-green: darken($hybay-mint-green, 20%);
-  --color-hybay-light-mint-green: lighten($hybay-mint-green, 20%);
+    --font-sans:
+        Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-frontend:
+        "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display: "Ranchers", Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-lato: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-cursive: "Life Savers", Helvetica Neue, Helvetica, Arial, sans-serif;
+    --color-hybay-pink: #ff4a93;
+    --color-hybay-light-pink: #ff9cc3;
+    --color-hybay-dark-pink: #ab3262;
+    --color-hybay-blue: #14accc;
+    --color-hybay-dark-blue: #077187;
+    --color-hybay-light-blue: #0cc6ed;
+    --color-hybay-purple: #e843db;
+    --color-hybay-dark-purple: darken($hybay-purple, 20%);
+    --color-hybay-light-purple: lighten($hybay-purple, 20%);
+    --color-hybay-violet: #e594ff;
+    --color-hybay-dark-violet: darken($hybay-violet, 20%);
+    --color-hybay-light-violet: lighten($hybay-violet, 20%);
+    --color-hybay-red: #e83e38;
+    --color-hybay-dark-red: darken($hybay-red, 20%);
+    --color-hybay-light-red: lighten($hybay-red, 20%);
+    --color-hybay-deep-orange: #ff613d;
+    --color-hybay-dark-deep-orange: darken($hybay-deep-orange, 20%);
+    --color-hybay-light-deep-orange: lighten($hybay-deep-orange, 20%);
+    --color-hybay-dark-green: #00b20a;
+    --color-hybay-dark-dark-green: darken($hybay-dark-green, 20%);
+    --color-hybay-light-dark-green: lighten($hybay-dark-green, 20%);
+    --color-hybay-mint-green: #0abfa0;
+    --color-hybay-dark-mint-green: darken($hybay-mint-green, 20%);
+    --color-hybay-light-mint-green: lighten($hybay-mint-green, 20%);
 }
 
 @theme inline static {
@@ -55,11 +57,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }

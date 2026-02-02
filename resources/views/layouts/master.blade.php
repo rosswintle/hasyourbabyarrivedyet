@@ -40,7 +40,7 @@
     </head>
 
     <body
-    class="relative min-h-screen pb-32"
+    class="relative min-h-screen pb-32 font-frontend"
     style="
      --color-hybay-primary: var(--color-hybay-{{ $color_scheme ?? 'pink' }});
      --color-hybay-dark: var(--color-hybay-dark-{{ $color_scheme ?? 'pink' }});

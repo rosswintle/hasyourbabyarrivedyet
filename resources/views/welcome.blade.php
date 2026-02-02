@@ -20,7 +20,7 @@
             <img class="block mx-auto max-w-64" src="/images/mobile-mockup.jpg">
         </div>
         <div class="md:w-2/3 md:order-1 text-lg">
-            <h2 class="text-4xl text-hybay-pink mb-6 font-bold">What is this?</h2>
+            <h2 class="text-4xl text-hybay-pink mb-2 font-display">What is this?</h2>
 
             <p class="mb-4">It&apos;s a fun side project of mine!</p>
 
