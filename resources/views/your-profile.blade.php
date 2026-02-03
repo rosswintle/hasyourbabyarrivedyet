@@ -10,18 +10,28 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             @include('flash::message')
-            <h1 class="display-name">{{ $profile->display_name }}</h1>
+            <x-main-heading>{{ $profile->display_name }}</x-main-heading>
+            <h2 class="text-4xl font-cursive font-bold text-center mb-24">
+                Has your baby arrived yet?
+            </h2>
+
             <h2>Current status:</h2>
-            <div class="small-answer">{{ $profile->statusAsString() }}</div>
-            <h2>Change status:</h2>
-            <form method="POST" action="{{ route('user.toggle-state') }}">
+            <div class="text-8xl mb-8 font-display text-center">
+                {{ $profile->statusAsString() }}
+            </div>
+
+            <form method="POST" action="{{ route('user.toggle-state') }}" class="mb-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button class="big-red-button">Change<br>Status</button>
+                <x-button>Change Status</x-button>
             </form>
-            <h2>Current note:</h2>
+
+            <h2 class="mb-2">Current note:</h2>
             <p>
                 {!! $profile->note !!}
-                <br><a class="btn btn-default" href="{{ route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</a>
+            </p>
+
+            <p>
+                <x-link-button href="{{ route('user.profile.note', [ Auth::user()->domain ]) }}">Edit note</x-link-button>
             </p>
 
         </div>

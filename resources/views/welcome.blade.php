@@ -8,11 +8,11 @@
     <x-main-heading>hasyourbabyarrivedyet.com</x-main-heading>
     <h2 class="font-bold text-lg w-full max-w-2xl mx-auto text-center mb-10">A free and simple service for sharing news of your new arrival and stopping people asking you the obvious question: Has your baby arrived yet?!</h2>
     <p class="flex justify-center gap-4">
-        <x-button href="{{ url('how-it-works') }}">Find out more</x-button>
+        <x-link-button href="{{ url('how-it-works') }}">Find out more</x-link-button>
         @if (! Auth::user())
-            <x-button href="{{ route('register') }}">Sign Up</x-button>
+            <x-link-button href="{{ route('register') }}">Sign Up</x-link-button>
         @else
-            <x-button href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</x-button>
+            <x-link-button href="{{ URL::route('user.profile.index', [ Auth::user()->domain ]) }}">Your Page</x-link-button>
         @endif
     </p>
     <div class="mt-10 md:mt-20 md:flex md:gap-6">
@@ -28,7 +28,7 @@
 
             <p class="mb-4">Here&apos;s an example: </p>
 
-            <p class="mb-4"><x-button href="http://kateandwilliam.{{ config('hasyourbabyarrivedyet.domain') }}">Kate and William's Page</x-button></p>
+            <p class="mb-4"><x-link-button href="http://kateandwilliam.{{ config('hasyourbabyarrivedyet.domain') }}">Kate and William's Page</x-link-button></p>
 
             <p>You can find out <a class="underline text-hybay-primary" href="{{ url('how-it-works') }}">how it works</a>, or go ahead and <a class="underline text-hybay-primary" href="{{ route('register') }}">sign up</a>.</p>
         </div>
