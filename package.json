@@ -1,18 +1,23 @@
 {
+    "$schema": "https://www.schemastore.org/package.json",
     "name": "hasyourbabyarrivedyet.com",
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "dev": "vite"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
         "@tailwindcss/vite": "^4.0.0",
+        "concurrently": "^10.0.3",
         "alpinejs": "^3.4.2",
         "axios": "^1.7.4",
         "laravel-vite-plugin": "^3.0",
         "tailwindcss": "^4.1.14",
         "vite": "^8.0.0"
+    },
+    "optionalDependencies": {
+        "@laravel/multiplex": "^0.4.1"
     }
 }
