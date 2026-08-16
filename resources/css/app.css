@@ -19,23 +19,23 @@
     --color-hybay-dark-blue: #077187;
     --color-hybay-light-blue: #0cc6ed;
     --color-hybay-purple: #e843db;
-    --color-hybay-dark-purple: darken($hybay-purple, 20%);
-    --color-hybay-light-purple: lighten($hybay-purple, 20%);
+    --color-hybay-dark-purple: rgb(68.8337515101%, 8.4211504507%, 64.0739708206%);
+    --color-hybay-light-purple: rgb(95.3405817303%, 61.9143202305%, 92.7069974909%);
     --color-hybay-violet: #e594ff;
-    --color-hybay-dark-violet: darken($hybay-violet, 20%);
-    --color-hybay-light-violet: lighten($hybay-violet, 20%);
+    --color-hybay-dark-violet: rgb(80.0842954004%, 18.0392156863%, 100%);
+    --color-hybay-light-violet: rgb(99.5235477369%, 98.0392156863%, 100%);
     --color-hybay-red: #e83e38;
-    --color-hybay-dark-red: darken($hybay-red, 20%);
-    --color-hybay-light-red: lighten($hybay-red, 20%);
+    --color-hybay-dark-red: rgb(65.3842077371%, 9.5283518813%, 7.5569687334%);
+    --color-hybay-light-red: rgb(95.124536301%, 59.088500265%, 57.8166401696%);
     --color-hybay-deep-orange: #ff613d;
-    --color-hybay-dark-deep-orange: darken($hybay-deep-orange, 20%);
-    --color-hybay-light-deep-orange: lighten($hybay-deep-orange, 20%);
+    --color-hybay-dark-deep-orange: rgb(83.9215686275%, 15.5730745907%, 0%);
+    --color-hybay-light-deep-orange: rgb(100%, 70.6165352739%, 63.9215686275%);
     --color-hybay-dark-green: #00b20a;
-    --color-hybay-dark-dark-green: darken($hybay-dark-green, 20%);
-    --color-hybay-light-dark-green: lighten($hybay-dark-green, 20%);
+    --color-hybay-dark-dark-green: rgb(0%, 29.8039215686%, 1.6743776162%);
+    --color-hybay-light-dark-green: rgb(9.8039215686%, 100%, 14.8711169861%);
     --color-hybay-mint-green: #0abfa0;
-    --color-hybay-dark-mint-green: darken($hybay-mint-green, 20%);
-    --color-hybay-light-mint-green: lighten($hybay-mint-green, 20%);
+    --color-hybay-dark-mint-green: rgb(1.9315188762%, 36.8920105356%, 30.9043020193%);
+    --color-hybay-light-mint-green: rgb(22.8621597893%, 95.9613696225%, 83.4416154522%);
 }
 
 @theme inline static {
